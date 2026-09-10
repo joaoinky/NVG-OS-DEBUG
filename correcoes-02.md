@@ -54,7 +54,7 @@ mapeamento de UID de `unshare`. O workflow foi ajustado nos commits
 privilégios do container. Nos rechecks, o runner ainda apresentou limitações
 de acesso a `/proc/1/ns/net`; a branch 1 também não contém o verificador da
 seção 2. Isso é uma pendência do workflow, não uma reprovação dos testes
-locais das correções, e deve ser resolvido antes do merge.
+locais das correções.
 
 Não foi construída uma ISO nem validado hardware real. Permanecem necessárias
 as validações de UID do serviço Tor, rádios, hotplug, gerenciadores de rede e
