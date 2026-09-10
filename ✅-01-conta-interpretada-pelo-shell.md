@@ -26,5 +26,5 @@ Reprodução inofensiva da construção usada no nome: `Pessoa $(printf NVG_MARC
 
 - `app.rs → Plan → configure/accounts → chroot`: entrada aceita, interpolação e execução.
 - [rust/nvg-installer/src/perfil.rs:104](../neovanguard-os-dev/rust/nvg-installer/src/perfil.rs:104) também preenche hostname e nome completo a partir de um perfil; esse é outro caminho de entrada, sujeito aos controles de confiança do perfil.
-- [Cadeia 02](02-preservacao-e-luks.md): ambos os problemas podem surgir depois de operações no disco, quando a falha já não equivale a simplesmente cancelar o formulário.
+- [Cadeia 02](✅-02-preservacao-e-luks.md): ambos os problemas podem surgir depois de operações no disco, quando a falha já não equivale a simplesmente cancelar o formulário.
 - [Índice](README.md).

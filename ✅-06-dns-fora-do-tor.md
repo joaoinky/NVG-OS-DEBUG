@@ -29,6 +29,6 @@ A ordem de avaliação e o significado de `return` são descritos no [manual ofi
 
 - Configuração de DNS da conexão → `tor.nft/redirecionar` → `tor.nft/saida` → resolvedor local.
 - [neo/etc/tor/torrc:10](../neovanguard-os-dev/neo/etc/tor/torrc:10) fornece o DNSPort, mas esse pacote não chega a ele.
-- [Cadeia 05](05-conexoes-anteriores-ao-bloqueio.md): não depende de uma conexão anterior, ao contrário daquele caso.
-- [Cadeia 04](04-firewall-e-painel.md): a indicação “Tor total” não verifica o percurso de DNS.
+- [Cadeia 05](✅-05-conexoes-anteriores-ao-bloqueio.md): não depende de uma conexão anterior, ao contrário daquele caso.
+- [Cadeia 04](✅-04-firewall-e-painel.md): a indicação “Tor total” não verifica o percurso de DNS.
 - [Índice](README.md).

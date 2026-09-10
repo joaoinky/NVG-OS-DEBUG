@@ -19,6 +19,6 @@ A informação “mantida” não descreve a operação realizada. A combinaçã
 ## Pontos de toque
 
 - `main.rs/app.rs → ui.rs → partition → format_fs → mount`: controles independentes produzem uma promessa que a execução contradiz.
-- [Cadeia 01](01-conta-interpretada-pelo-shell.md): falhas tardias depois da preparação do disco.
-- [Cadeia 03](03-btrfs-e-primeiro-boot.md): outra divergência entre layout preparado e etapa que o consome; são defeitos independentes.
+- [Cadeia 01](✅-01-conta-interpretada-pelo-shell.md): falhas tardias depois da preparação do disco.
+- [Cadeia 03](❌-03-btrfs-e-primeiro-boot.md): outra divergência entre layout preparado e etapa que o consome; são defeitos independentes.
 - [Índice](README.md).

@@ -27,5 +27,5 @@ O teste não indica defeito na aritmética GF(256); demonstra falta de detecçã
 
 - `codificar/decodificar → cmd_juntar → juntar_bytes → entropia_para_frase`.
 - `neo-seed-check` é citado pelo próprio comando, mas a validade do checksum não confirma a origem dos bytes reconstruídos.
-- [Cadeia 07](07-airgap-sucesso-sem-isolamento.md): relação de diagnóstico, não dependência de execução — ambos apresentam sucesso sem comprovar a propriedade que o usuário espera.
+- [Cadeia 07](✅-07-airgap-sucesso-sem-isolamento.md): relação de diagnóstico, não dependência de execução — ambos apresentam sucesso sem comprovar a propriedade que o usuário espera.
 - [Índice](README.md).

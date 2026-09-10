@@ -12,14 +12,14 @@ São **9 erros em 8 cadeias**. Cada arquivo acompanha a entrada ou ação do usu
 
 | Cadeia | Erros | O que dá errado | Impacto | Estado |
 |---|---|---|---|---|
-| [01 — Conta e shell](01-conta-interpretada-pelo-shell.md) | NVG-01, NVG-02 | Apóstrofo na senha quebra o script; dados da conta podem ser interpretados como comandos | Alto | **Resolvido** |
-| [02 — Preservação e LUKS](02-preservacao-e-luks.md) | NVG-03 | Raiz anunciada como mantida recebe criação destrutiva de contêiner | Crítico | **Resolvido** |
-| [03 — Btrfs e boot](03-btrfs-e-primeiro-boot.md) | NVG-04 | Entrada systemd-boot não seleciona o subvolume que contém o sistema | Alto | **Pendente** |
-| [04 — Firewall e painel](04-firewall-e-painel.md) | NVG-05 | Painel pode anunciar Tor após retorno ao firewall de saída direta | Alto | **Resolvido** |
-| [05 — Conexões anteriores](05-conexoes-anteriores-ao-bloqueio.md) | NVG-06 | Sessões diretas estabelecidas continuam aceitas | Alto | **Resolvido** |
-| [06 — DNS e LAN](06-dns-fora-do-tor.md) | NVG-07 | Consulta ao resolvedor privado evita o redirecionamento Tor | Alto | **Resolvido** |
-| [07 — Air-gap](07-airgap-sucesso-sem-isolamento.md) | NVG-08 | Falhas de isolamento terminam com marcador e mensagem de sucesso | Alto | **Resolvido** |
-| [08 — Recuperação Shamir](08-shamir-recuperacao-de-outra-semente.md) | NVG-09 | Mistura de conjuntos gera outra semente com checksum válido | Alto | **Pendente** |
+| [01 — Conta e shell](✅-01-conta-interpretada-pelo-shell.md) | NVG-01, NVG-02 | Apóstrofo na senha quebra o script; dados da conta podem ser interpretados como comandos | Alto | **Resolvido** |
+| [02 — Preservação e LUKS](✅-02-preservacao-e-luks.md) | NVG-03 | Raiz anunciada como mantida recebe criação destrutiva de contêiner | Crítico | **Resolvido** |
+| [03 — Btrfs e boot](❌-03-btrfs-e-primeiro-boot.md) | NVG-04 | Entrada systemd-boot não seleciona o subvolume que contém o sistema | Alto | **Pendente** |
+| [04 — Firewall e painel](✅-04-firewall-e-painel.md) | NVG-05 | Painel pode anunciar Tor após retorno ao firewall de saída direta | Alto | **Resolvido** |
+| [05 — Conexões anteriores](✅-05-conexoes-anteriores-ao-bloqueio.md) | NVG-06 | Sessões diretas estabelecidas continuam aceitas | Alto | **Resolvido** |
+| [06 — DNS e LAN](✅-06-dns-fora-do-tor.md) | NVG-07 | Consulta ao resolvedor privado evita o redirecionamento Tor | Alto | **Resolvido** |
+| [07 — Air-gap](✅-07-airgap-sucesso-sem-isolamento.md) | NVG-08 | Falhas de isolamento terminam com marcador e mensagem de sucesso | Alto | **Resolvido** |
+| [08 — Recuperação Shamir](❌-08-shamir-recuperacao-de-outra-semente.md) | NVG-09 | Mistura de conjuntos gera outra semente com checksum válido | Alto | **Pendente** |
 
 A gravidade expressa a consequência no cenário descrito, não a frequência de ocorrência.
 

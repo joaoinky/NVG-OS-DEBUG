@@ -30,6 +30,6 @@ O resultado comunica uma condição física que o programa não conseguiu estabe
 ## Pontos de toque
 
 - `neo-airgap → _neo-comum.sh/mark → neo-status`: uma tentativa é convertida em estado afirmativo.
-- [Cadeia 04](04-firewall-e-painel.md): mesma infraestrutura de marcadores, com causa diferente.
+- [Cadeia 04](✅-04-firewall-e-painel.md): mesma infraestrutura de marcadores, com causa diferente.
 - A documentação já reconhece que estado solicitado não comprova air gap em [documentation/security-review-scope.md:17](../neovanguard-os-dev/documentation/security-review-scope.md:17); a reprodução identifica onde essa limitação aparece no comando.
 - [Índice](README.md).

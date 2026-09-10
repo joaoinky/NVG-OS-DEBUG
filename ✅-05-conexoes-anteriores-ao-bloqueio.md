@@ -26,6 +26,6 @@ A interpretação de `ct state` e da decisão `accept` segue o [manual oficial d
 ## Pontos de toque
 
 - `neo-tor/neo-killswitch → saída nftables → estado de conexões preexistente`.
-- [Cadeia 04](04-firewall-e-painel.md): o painel não detecta essa exceção, pois lê marcadores.
-- [Cadeia 06](06-dns-fora-do-tor.md): outra saída direta, desta vez possível em consultas novas.
+- [Cadeia 04](✅-04-firewall-e-painel.md): o painel não detecta essa exceção, pois lê marcadores.
+- [Cadeia 06](✅-06-dns-fora-do-tor.md): outra saída direta, desta vez possível em consultas novas.
 - [Índice](README.md).

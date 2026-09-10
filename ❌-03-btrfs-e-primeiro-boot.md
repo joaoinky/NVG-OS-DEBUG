@@ -17,5 +17,5 @@ O contrato entre a montagem da instalação e a montagem inicial do boot perde o
 ## Pontos de toque
 
 - `format_fs → mount → cópia/pacstrap → bootloader`: o produtor coloca o sistema em uma árvore específica e o consumidor não a seleciona.
-- [Cadeia 02](02-preservacao-e-luks.md) toca as mesmas funções de particionamento e montagem, por outra causa.
+- [Cadeia 02](✅-02-preservacao-e-luks.md) toca as mesmas funções de particionamento e montagem, por outra causa.
 - [Índice](README.md).

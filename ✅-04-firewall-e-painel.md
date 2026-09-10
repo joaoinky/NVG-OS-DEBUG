@@ -31,6 +31,6 @@ Ambos os scripts retornaram 0. A simulação confirmou chamadas e estados; não 
 
 - `neo-tor/neo-killswitch → *.nft → marcadores → neo-status`.
 - A substituição também remove o redirecionamento Tor ao ativar killswitch; os modos não se acumulam como os marcadores sugerem.
-- [Cadeia 05](05-conexoes-anteriores-ao-bloqueio.md) e [Cadeia 06](06-dns-fora-do-tor.md) tratam das próprias permissões das regras, mesmo quando o marcador corresponde ao arquivo.
-- [Cadeia 07](07-airgap-sucesso-sem-isolamento.md) compartilha a biblioteca de marcadores e o painel.
+- [Cadeia 05](✅-05-conexoes-anteriores-ao-bloqueio.md) e [Cadeia 06](✅-06-dns-fora-do-tor.md) tratam das próprias permissões das regras, mesmo quando o marcador corresponde ao arquivo.
+- [Cadeia 07](✅-07-airgap-sucesso-sem-isolamento.md) compartilha a biblioteca de marcadores e o painel.
 - [Índice](README.md).
