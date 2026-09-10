@@ -1,6 +1,14 @@
 # Cadeia 05 — Conexão direta anterior continua aceita no modo Tor
 
+> **Status: RESOLVIDO** — corrigido na branch `fix/regras-nft-excecoes` (`NVG-06`).
+
 Erro: **NVG-06**. Impacto: alto, tráfego direto permitido apesar do bloqueio anunciado. Verificação: análise das regras e da semântica oficial; sem captura de tráfego.
+
+## Solução aplicada
+
+As regras `tor.nft` e `killswitch-tor.nft` passaram a exigir `meta skuid 43` também para `ct state established,related`. Uma conexão direta preexistente não é mais aceita apenas por estar no conntrack; somente o processo Tor mantém essa exceção explícita.
+
+Validação: sessões TCP/UDP IPv4/IPv6 abertas antes da troca foram bloqueadas nos testes de namespace; o controle positivo do proprietário Tor permaneceu funcionando.
 
 ## Walkthrough
 

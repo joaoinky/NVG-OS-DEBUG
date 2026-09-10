@@ -1,6 +1,14 @@
 # Cadeia 06 — Exceção de LAN deixa DNS escapar do Tor
 
+> **Status: RESOLVIDO** — corrigido na branch `fix/regras-nft-excecoes` (`NVG-07`).
+
 Erro: **NVG-07**. Impacto: alto para privacidade de consultas. Verificação: percurso estático de regras; nenhuma consulta externa realizada.
+
+## Solução aplicada
+
+Em `tor.nft`, UDP/53 e TCP/53 agora são tratados antes da exceção de redes privadas: UDP é redirecionado ao DNSPort 9053 e TCP ao TransPort 9040. O filtro também descarta DNS residual que chegaria à LAN sem redirecionamento, inclusive em fluxos anteriores.
+
+Validação: DNS novo para resolvedores privados e públicos alcançou as portas locais esperadas; DNS TCP/UDP preexistente não escapou. LAN não-DNS e DHCP continuam permitidos.
 
 ## Walkthrough
 

@@ -1,6 +1,14 @@
 # Cadeia 04 — Firewall muda, painel conserva o modo anterior
 
+> **Status: RESOLVIDO** — corrigido na branch `fix/04-07-marcadores` (`NVG-05`).
+
 Erro: **NVG-05**. Impacto: alto, indicação de proteção incompatível com as regras. Verificação: sequência reproduzida com nft simulado e marcadores reais em diretório temporário.
+
+## Solução aplicada
+
+Os comandos de troca de firewall agora invalidam os caches antes da mudança e só gravam um marcador após confirmar o ruleset carregado no kernel. O `neo-status` faz uma consulta nova, em vez de confiar na existência do arquivo; assim, trocar para o firewall base não preserva uma indicação Tor antiga. A verificação e a gravação são serializadas por lock e o cache contém a evidência JSON observada.
+
+Validação: testes de troca de modos, marcador órfão, regras sem marcador e alteração externa passaram.
 
 ## Walkthrough
 

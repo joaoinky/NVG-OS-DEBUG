@@ -4,22 +4,22 @@ Análise de **09/09/2026**, sobre a árvore local da versão **1.2.0 em prepara�
 
 São **9 erros em 8 cadeias**. Cada arquivo acompanha a entrada ou ação do usuário, a origem do defeito, sua propagação e o efeito observável ou esperado. Os links entre cadeias distinguem dependência de execução de semelhança de diagnóstico. Não há propostas de correção.
 
-## Estado após a primeira rodada de correções
+## Estado das correções
 
-**NVG-03, NVG-02 e NVG-01 corrigidos no código-fonte**, nessa prioridade. Os seis demais achados permanecem pendentes. Consulte o [registro da rodada](correcoes-01.md) para comportamento atual e validação. Os walkthroughs abaixo preservam o diagnóstico da revisão original; suas linhas se referem ao commit auditado.
+**NVG-03, NVG-02 e NVG-01 corrigidos no código-fonte**, nessa prioridade. **NVG-05, NVG-06, NVG-07 e NVG-08 também foram corrigidos**, nas branches de firewall, verificação de estado e marcadores. Permanecem pendentes NVG-04 e NVG-09. Os walkthroughs registram o diagnóstico original e o resumo da solução aplicada.
 
 ## Ordem de leitura e lista de erros
 
-| Cadeia | Erros | O que dá errado | Impacto |
-|---|---|---|---|
-| [01 — Conta e shell](01-conta-interpretada-pelo-shell.md) | NVG-01, NVG-02 | Apóstrofo na senha quebra o script; dados da conta podem ser interpretados como comandos | Alto |
-| [02 — Preservação e LUKS](02-preservacao-e-luks.md) | NVG-03 | Raiz anunciada como mantida recebe criação destrutiva de contêiner | Crítico |
-| [03 — Btrfs e boot](03-btrfs-e-primeiro-boot.md) | NVG-04 | Entrada systemd-boot não seleciona o subvolume que contém o sistema | Alto |
-| [04 — Firewall e painel](04-firewall-e-painel.md) | NVG-05 | Painel pode anunciar Tor após retorno ao firewall de saída direta | Alto |
-| [05 — Conexões anteriores](05-conexoes-anteriores-ao-bloqueio.md) | NVG-06 | Sessões diretas estabelecidas continuam aceitas | Alto |
-| [06 — DNS e LAN](06-dns-fora-do-tor.md) | NVG-07 | Consulta ao resolvedor privado evita o redirecionamento Tor | Alto |
-| [07 — Air-gap](07-airgap-sucesso-sem-isolamento.md) | NVG-08 | Falhas de isolamento terminam com marcador e mensagem de sucesso | Alto |
-| [08 — Recuperação Shamir](08-shamir-recuperacao-de-outra-semente.md) | NVG-09 | Mistura de conjuntos gera outra semente com checksum válido | Alto |
+| Cadeia | Erros | O que dá errado | Impacto | Estado |
+|---|---|---|---|---|
+| [01 — Conta e shell](01-conta-interpretada-pelo-shell.md) | NVG-01, NVG-02 | Apóstrofo na senha quebra o script; dados da conta podem ser interpretados como comandos | Alto | **Resolvido** |
+| [02 — Preservação e LUKS](02-preservacao-e-luks.md) | NVG-03 | Raiz anunciada como mantida recebe criação destrutiva de contêiner | Crítico | **Resolvido** |
+| [03 — Btrfs e boot](03-btrfs-e-primeiro-boot.md) | NVG-04 | Entrada systemd-boot não seleciona o subvolume que contém o sistema | Alto | **Pendente** |
+| [04 — Firewall e painel](04-firewall-e-painel.md) | NVG-05 | Painel pode anunciar Tor após retorno ao firewall de saída direta | Alto | **Resolvido** |
+| [05 — Conexões anteriores](05-conexoes-anteriores-ao-bloqueio.md) | NVG-06 | Sessões diretas estabelecidas continuam aceitas | Alto | **Resolvido** |
+| [06 — DNS e LAN](06-dns-fora-do-tor.md) | NVG-07 | Consulta ao resolvedor privado evita o redirecionamento Tor | Alto | **Resolvido** |
+| [07 — Air-gap](07-airgap-sucesso-sem-isolamento.md) | NVG-08 | Falhas de isolamento terminam com marcador e mensagem de sucesso | Alto | **Resolvido** |
+| [08 — Recuperação Shamir](08-shamir-recuperacao-de-outra-semente.md) | NVG-09 | Mistura de conjuntos gera outra semente com checksum válido | Alto | **Pendente** |
 
 A gravidade expressa a consequência no cenário descrito, não a frequência de ocorrência.
 
@@ -53,4 +53,3 @@ As cadeias 01 a 03 atravessam a instalação. As cadeias 04 a 07 atravessam os c
 O escopo foi a árvore-fonte do instalador, os comandos e regras de rede relacionados aos achados e a recuperação Shamir, com leitura dos pontos de integração. Não houve auditoria exaustiva de todos os aplicativos, dependências, pacotes binários e imagens. Os arquivos gerados não afirmam que estes sejam todos os erros existentes.
 
 As referências locais apontam para arquivos e linhas da árvore analisada. As referências externas, presentes nas cadeias 03, 05 e 06, documentam a semântica usada na interpretação.
-

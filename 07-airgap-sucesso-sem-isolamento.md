@@ -1,6 +1,14 @@
 # Cadeia 07 — Operações de isolamento falham, air-gap é anunciado
 
+> **Status: RESOLVIDO** — corrigido na branch `fix/04-07-marcadores` (`NVG-08`).
+
 Erro: **NVG-08**. Impacto: alto, falsa indicação de isolamento. Verificação: reproduzido com todos os comandos de alteração de rede substituídos por funções que falham.
+
+## Solução aplicada
+
+`neo-airgap` agora acompanha falhas de serviços, interfaces, rádios e módulos, reenumera as interfaces após parar os gerenciadores e só grava o marcador após verificar `ip` e `rfkill` no estado final. O `neo-status` consulta o kernel diretamente. `neo-airgap-off` invalida o marcador antes da restauração e preserva os inventários quando a recuperação é parcial.
+
+Validação: falhas operacionais, interfaces virtuais ativas, rádios desbloqueados, restauração parcial e reativação externa não produzem sucesso falso.
 
 ## Walkthrough
 
