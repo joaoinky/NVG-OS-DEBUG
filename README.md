@@ -10,6 +10,11 @@ A análise original encontrou **9 erros em 8 cadeias**. A revisão de **11/09/20
 
 **As dez cadeias estão corrigidas no código.** NVG-10, NVG-11 e NVG-12 foram resolvidos na [sexta rodada](correcoes-06.md). A lista completa do que falta, inclusive o que não é código, está em [reconciliação](reconciliacao-2026-09-11.md#o-que-falta-corrigir).
 
+As quinta e sexta rodadas foram integradas ao `neovanguard-os-dev` pelo
+[PR #5](https://github.com/NEOpisa/neovanguard-os-dev/pull/5), merge
+`034f0d7`, depois do CI completo. A cópia pública desta auditoria foi proposta
+no [NVG-OS-DEBUG #1](https://github.com/joaoinky/NVG-OS-DEBUG/pull/1).
+
 Registros: [primeira](correcoes-01.md), [segunda](correcoes-02.md), [terceira (substituída)](correcoes-03.md), [quarta](correcoes-04.md), [quinta](correcoes-05.md) e [sexta](correcoes-06.md) rodadas. A comparação entre esta pasta, o repositório NVG-OS-DEBUG e o `neovanguard-os-dev`, com o inventário do trabalho local que estava fora do git, está em **[reconciliação](reconciliacao-2026-09-11.md)**.
 
 Os nomes dos arquivos dizem o estado: `✅` resolvido, `❌` pendente. Os walkthroughs preservam o diagnóstico original; as linhas citadas neles são as do commit auditado.

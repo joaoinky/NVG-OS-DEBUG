@@ -168,4 +168,12 @@ E continua faltando o que não é código ou depende de você:
 2. **ISO nova.** As ISOs de `out/` não têm nenhuma correção deste documento. Para gerar: `./build-iso` (pede sudo).
 3. **Validação no hardware.** UID do Tor, rádios, hotplug, gerenciadores de rede, isolamento físico do air-gap e o primeiro boot Btrfs + systemd-boot (NVG-04) só foram exercitados em teste, nunca numa máquina ou VM.
 4. **Revisão criptográfica do `nvgs2`**, já pedida em `documentation/soberania.md` para o `neo-shamir` como um todo.
-5. **Confirmar o CI remoto.** A validação local passou; o resultado do workflow após o merge deve ser conferido no GitHub.
+
+## Publicação das rodadas 05 e 06
+
+As duas rodadas foram publicadas no
+[PR #5 do neovanguard-os-dev](https://github.com/NEOpisa/neovanguard-os-dev/pull/5).
+O workflow `check` passou em 4m33s (execução `34655304586`), inclusive tráfego
+de firewall, referências de rede, tema e perfil da ISO. O PR foi integrado à
+`main` em 11/09/2026, merge `034f0d7`. A auditoria pública correspondente foi
+proposta no [NVG-OS-DEBUG #1](https://github.com/joaoinky/NVG-OS-DEBUG/pull/1).

@@ -2,7 +2,9 @@
 
 Data: 11/09/2026. Escopo: o NVG-09 (cadeia 08) e a guarda do `scripts/check-network-policies.py`, as duas pendências de código que sobraram da [reconciliação](reconciliacao-2026-09-11.md).
 
-**Estado no momento da validação:** árvore local, antes da publicação. O estado final fica registrado no PR da quinta e sexta rodadas.
+**Estado final:** publicada junto da sexta rodada no
+[PR #5](https://github.com/NEOpisa/neovanguard-os-dev/pull/5), integrado à
+`main` no merge `034f0d7` depois do CI completo.
 
 ## Alterações
 

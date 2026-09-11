@@ -1,9 +1,9 @@
 # Sexta rodada de correções
 
 Data: 11/09/2026. Escopo: NVG-10, NVG-11 e NVG-12, cadeias 09 e 10.
-**Estado no momento da validação:** árvore local, antes da publicação. A
-`main` estava quatro commits à frente de `osdev/main`; a quinta rodada foi
-preservada. O estado final fica registrado no PR desta rodada.
+**Estado final:** publicada junto da quinta rodada no
+[PR #5](https://github.com/NEOpisa/neovanguard-os-dev/pull/5), integrado à
+`main` no merge `034f0d7` depois do CI completo. A quinta rodada foi preservada.
 
 ## Alterações
 
@@ -63,6 +63,9 @@ preservada. O estado final fica registrado no PR desta rodada.
   `python3 scripts/check-network-policies.py`: ambos aprovados.
 - `git diff --check`: sem erros. Antes da publicação, `main` estava quatro
   commits à frente de `osdev/main` e esta rodada ainda não estava commitada.
+- **CI remoto aprovado:** workflow `check`, execução `34655304586`, em 4m33s.
+  Cobriu formatação, Clippy/testes, tráfego de firewall, referências e sondas
+  de rede, geração do tema e perfil da ISO.
 
 ## Arquivos desta rodada
 
@@ -94,7 +97,7 @@ preservada. O estado final fica registrado no PR desta rodada.
   identificado por estas regras. LAN sem DNS permanece exceção deliberada.
 - A inspeção comum reconhece a estrutura e relata os endpoints carregados;
   não autentica o servidor. Na aplicação, compara-os com os endpoints pedidos.
-- Pacotes continuam `1.2.0-1`. Não houve alteração de versão, commit, push,
-  publicação ou confirmação de CI remoto. As ISOs antigas continuam antigas.
+- Pacotes continuam `1.2.0-1`. Não houve alteração de versão nem publicação
+  de ISO. As ISOs antigas continuam antigas.
 - O trabalho Shamir da quinta rodada, a senha de conta vazia e as demais
   pendências da reconciliação não foram alterados.
