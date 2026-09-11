@@ -1,22 +1,24 @@
 # Cadeia 06 — Exceção de LAN deixa DNS escapar do Tor
 
-> **Status: RESOLVIDO** — corrigido na branch `fix/regras-nft-excecoes` (`NVG-07`).
+> **Status: RESOLVIDO**: corrigido na branch `fix/regras-nft-excecoes` (PR #1, `NVG-07`), mesclado na `main` do `neovanguard-os-dev`.
 
 Erro: **NVG-07**. Impacto: alto para privacidade de consultas. Verificação: percurso estático de regras; nenhuma consulta externa realizada.
 
 ## Solução aplicada
 
-Em `tor.nft`, UDP/53 e TCP/53 agora são tratados antes da exceção de redes privadas: UDP é redirecionado ao DNSPort 9053 e TCP ao TransPort 9040. O filtro também descarta DNS residual que chegaria à LAN sem redirecionamento, inclusive em fluxos anteriores.
+Em `tor.nft`, UDP/53 e TCP/53 passaram a ser tratados antes da exceção de redes privadas: UDP é redirecionado ao DNSPort 9053 e TCP ao TransPort 9040. O filtro também descarta DNS residual que chegaria à LAN sem redirecionamento, inclusive em fluxos anteriores.
 
-Validação: DNS novo para resolvedores privados e públicos alcançou as portas locais esperadas; DNS TCP/UDP preexistente não escapou. LAN não-DNS e DHCP continuam permitidos.
+Validação: DNS novo para resolvedores privados e públicos chegou às portas locais esperadas; DNS TCP/UDP preexistente não escapou. LAN não-DNS e DHCP continuam permitidos (`test-nft-network.py`, reexecutado em 11/09/2026). [Registro da rodada](correcoes-04.md).
+
+O texto abaixo registra o problema original; as linhas citadas são as do commit auditado.
 
 ## Walkthrough
 
 1. A máquina usa um resolvedor em endereço privado, por exemplo o roteador `192.168.1.1`. Esse é o cenário necessário ao erro, não uma configuração observada na máquina do usuário.
 2. O usuário ativa `neo-tor`, que anuncia tráfego pelo Tor.
-3. Uma consulta UDP para `192.168.1.1:53` encontra primeiro a exceção para redes privadas na cadeia NAT: [neo/etc/nftables/tor.nft:52](../neovanguard-os-dev/neo/etc/nftables/tor.nft:52).
+3. Uma consulta UDP para `192.168.1.1:53` encontra primeiro a exceção para redes privadas na cadeia NAT: [neo/etc/nftables/tor.nft:52](../../../neo/etc/nftables/tor.nft:52).
 4. O `return` encerra a avaliação dessa cadeia antes da regra de redirecionamento DNS na linha 60.
-5. Na cadeia de saída, a permissão geral para destinos privados aceita o pacote: [neo/etc/nftables/tor.nft:43](../neovanguard-os-dev/neo/etc/nftables/tor.nft:43).
+5. Na cadeia de saída, a permissão geral para destinos privados aceita o pacote: [neo/etc/nftables/tor.nft:43](../../../neo/etc/nftables/tor.nft:43).
 6. A consulta chega diretamente ao resolvedor da LAN, sem atravessar o DNSPort do Tor.
 
 ## O erro
@@ -28,7 +30,7 @@ A ordem de avaliação e o significado de `return` são descritos no [manual ofi
 ## Pontos de toque
 
 - Configuração de DNS da conexão → `tor.nft/redirecionar` → `tor.nft/saida` → resolvedor local.
-- [neo/etc/tor/torrc:10](../neovanguard-os-dev/neo/etc/tor/torrc:10) fornece o DNSPort, mas esse pacote não chega a ele.
+- [neo/etc/tor/torrc:10](../../../neo/etc/tor/torrc:10) fornece o DNSPort, mas esse pacote não chega a ele.
 - [Cadeia 05](✅-05-conexoes-anteriores-ao-bloqueio.md): não depende de uma conexão anterior, ao contrário daquele caso.
 - [Cadeia 04](✅-04-firewall-e-painel.md): a indicação “Tor total” não verifica o percurso de DNS.
 - [Índice](README.md).

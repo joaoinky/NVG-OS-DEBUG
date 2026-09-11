@@ -1,21 +1,23 @@
 # Cadeia 05 — Conexão direta anterior continua aceita no modo Tor
 
-> **Status: RESOLVIDO** — corrigido na branch `fix/regras-nft-excecoes` (`NVG-06`).
+> **Status: RESOLVIDO**: corrigido na branch `fix/regras-nft-excecoes` (PR #1, `NVG-06`), mesclado na `main` do `neovanguard-os-dev`.
 
 Erro: **NVG-06**. Impacto: alto, tráfego direto permitido apesar do bloqueio anunciado. Verificação: análise das regras e da semântica oficial; sem captura de tráfego.
 
 ## Solução aplicada
 
-As regras `tor.nft` e `killswitch-tor.nft` passaram a exigir `meta skuid 43` também para `ct state established,related`. Uma conexão direta preexistente não é mais aceita apenas por estar no conntrack; somente o processo Tor mantém essa exceção explícita.
+As regras `tor.nft` e `killswitch-tor.nft` passaram a exigir `meta skuid 43` também para `ct state established,related`. Uma conexão direta preexistente não é mais aceita só por estar no conntrack; a exceção vale apenas para o processo Tor.
 
-Validação: sessões TCP/UDP IPv4/IPv6 abertas antes da troca foram bloqueadas nos testes de namespace; o controle positivo do proprietário Tor permaneceu funcionando.
+Validação: sessões TCP/UDP IPv4/IPv6 abertas antes da troca foram bloqueadas nos testes de namespace, e o controle positivo do dono Tor continuou funcionando (7 testes em `test-nft-network.py`, reexecutados em 11/09/2026). [Registro da rodada](correcoes-04.md).
+
+O texto abaixo registra o problema original; as linhas citadas são as do commit auditado.
 
 ## Walkthrough
 
 1. Um aplicativo comum estabelece uma conexão direta antes da ativação do modo.
-2. O usuário ativa `neo-killswitch --tor`. O arquivo substitui as regras, mas sua cadeia de saída aceita `ct state established,related` para qualquer usuário e interface: [neo/etc/nftables/killswitch-tor.nft:20](../neovanguard-os-dev/neo/etc/nftables/killswitch-tor.nft:20).
+2. O usuário ativa `neo-killswitch --tor`. O arquivo substitui as regras, mas sua cadeia de saída aceita `ct state established,related` para qualquer usuário e interface: [neo/etc/nftables/killswitch-tor.nft:20](../../../neo/etc/nftables/killswitch-tor.nft:20).
 3. Os pacotes da conexão anterior satisfazem essa condição e são aceitos antes do descarte final. O filtro não exige que pertençam ao processo Tor.
-4. `tor.nft` repete essa aceitação: [neo/etc/nftables/tor.nft:40](../neovanguard-os-dev/neo/etc/nftables/tor.nft:40). O redirecionamento NAT não migra automaticamente uma conexão já estabelecida: a associação NAT é definida no início do fluxo, conforme a [documentação do nftables](https://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_%28NAT%29).
+4. `tor.nft` repete essa aceitação: [neo/etc/nftables/tor.nft:40](../../../neo/etc/nftables/tor.nft:40). O redirecionamento NAT não migra automaticamente uma conexão já estabelecida: a associação NAT é definida no início do fluxo, conforme a [documentação do nftables](https://wiki.nftables.org/wiki-nftables/index.php/Performing_Network_Address_Translation_%28NAT%29).
 
 ## O erro
 
