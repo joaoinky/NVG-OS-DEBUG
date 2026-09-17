@@ -4,7 +4,7 @@ Análise de **09/09/2026**, sobre a árvore local da versão **1.2.0 em prepara�
 
 A análise original encontrou **9 erros em 8 cadeias**. A revisão de **11/09/2026**, feita depois das correções, acrescentou **3 erros em 2 cadeias** (09 e 10), no mesmo formato; ali as linhas citadas são as da árvore de 11/09. Cada arquivo acompanha a entrada ou ação do usuário, a origem do defeito, sua propagação e o efeito observável ou esperado. Os links entre cadeias distinguem dependência de execução de semelhança de diagnóstico. As cadeias descrevem o problema; o que foi corrigido está nas seções "Solução aplicada" e nos registros de rodada.
 
-## Estado das correções (reconciliado em 11/09/2026)
+## Estado das correções (atualizado em 12/09/2026)
 
 **As oito cadeias originais estão corrigidas no código.** NVG-01 a NVG-04 foram corrigidos no commit `3e0b344`. NVG-05 a NVG-08 foram corrigidos nos PRs #1, #2 e #3 do `neovanguard-os-dev`, que chegaram à `main` pelo PR #4. Onde houve duas correções para o mesmo erro (NVG-05), prevaleceu a do `neovanguard-os-dev`. O NVG-09 foi corrigido na quinta rodada.
 
@@ -15,7 +15,17 @@ As quinta e sexta rodadas foram integradas ao `neovanguard-os-dev` pelo
 `034f0d7`, depois do CI completo. A cópia pública desta auditoria foi proposta
 no [NVG-OS-DEBUG #1](https://github.com/joaoinky/NVG-OS-DEBUG/pull/1).
 
-Registros: [primeira](correcoes-01.md), [segunda](correcoes-02.md), [terceira (substituída)](correcoes-03.md), [quarta](correcoes-04.md), [quinta](correcoes-05.md) e [sexta](correcoes-06.md) rodadas. A comparação entre esta pasta, o repositório NVG-OS-DEBUG e o `neovanguard-os-dev`, com o inventário do trabalho local que estava fora do git, está em **[reconciliação](reconciliacao-2026-09-11.md)**.
+O registro da publicação foi integrado pelo [PR #6](https://github.com/NEOpisa/neovanguard-os-dev/pull/6),
+merge `318c283`, base limpa da **[sétima rodada](correcoes-07.md)**. Esta rodada
+foi publicada na branch `fix/pendencias-pos-auditoria`, no
+[PR #7](https://github.com/NEOpisa/neovanguard-os-dev/pull/7), após resolver
+o escopo OAuth `workflow`. O resultado do CI `check` está na aba Checks do PR.
+A limpeza das três branches antigas foi concluída. O usuário
+pediu expressamente para **não construir a ISO agora**, autorizou 1.2.1 e escolheu
+armazenar apenas checksums no Actions. Os destinos `neovos`/`neovosdev` estão
+aposentados; o repositório ativo é o privado `NEOpisa/neovanguard-os-dev`.
+
+Registros: [primeira](correcoes-01.md), [segunda](correcoes-02.md), [terceira (substituída)](correcoes-03.md), [quarta](correcoes-04.md), [quinta](correcoes-05.md), [sexta](correcoes-06.md) e [sétima](correcoes-07.md) rodadas. A comparação entre esta pasta, o repositório NVG-OS-DEBUG e o `neovanguard-os-dev`, com o inventário do trabalho local que estava fora do git, está em **[reconciliação](reconciliacao-2026-09-11.md)**.
 
 Os nomes dos arquivos dizem o estado: `✅` resolvido, `❌` pendente. Os walkthroughs preservam o diagnóstico original; as linhas citadas neles são as do commit auditado.
 

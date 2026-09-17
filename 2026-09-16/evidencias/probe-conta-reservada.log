@@ -1,0 +1,4 @@
+useradd --prefix <temporário> -N root: exit 9
+useradd: user 'root' already exists
+
+CONFIRMADO: usuário root aceito pelo preflight é recusado pelo useradd por já existir

@@ -100,8 +100,18 @@ O que estava só na árvore de trabalho foi salvo no commit **`384b797`**, na br
 
 ## Estado do git depois da reconciliação
 
+**Publicado.** O trabalho reconciliado e as rodadas 05/06 chegaram à `main`
+pelo [PR #5](https://github.com/NEOpisa/neovanguard-os-dev/pull/5), merge
+`034f0d7`; o registro da publicação chegou pelo
+[PR #6](https://github.com/NEOpisa/neovanguard-os-dev/pull/6), merge `318c283`.
+No início da rodada 07, em 12/09/2026, **`main` local = `osdev/main` =
+`318c283`**, árvore limpa e workflow `check` verde (execução `34656044285`).
+A branch local `fix/pendencias-pos-auditoria` parte dessa base.
+
+Histórico anterior à publicação, preservado para explicar a reconciliação:
+
 ```
-main (local, 3 commits à frente de osdev/main, não publicada)
+4ce4080 (ponta local naquele momento, depois publicada pelo PR #5)
 ├── 4ce4080  documentação desta reconciliação
 ├── 9c0eb3d  merge osdev/main (PRs #1–#4) no trabalho local
 │   ├── 2e8320c  main do neovanguard-os-dev (PR #4)
@@ -112,7 +122,9 @@ main (local, 3 commits à frente de osdev/main, não publicada)
 - A mescla do upstream no trabalho local foi limpa. O único arquivo tocado pelos dois lados, `build-iso`, recebeu alterações em trechos diferentes (lista de arquivos do pacote × teste QML do player).
 - **Prova da mescla:** aplicar o patch `08f0bbe..384b797` sobre `osdev/main` dá exatamente a árvore de `9c0eb3d` (`c285ff0…`). Nenhum dos 72 arquivos que diferem do upstream está fora do trabalho local ou da documentação.
 - Nenhum remoto tinha commits fora da `main` local em 11/09/2026.
-- Para publicar: `git push osdev main`.
+- Não há publicação anterior pendente. Novas mudanças da rodada 07 ficam na
+  branch própria e foram publicadas no PR #7 após resolver a autenticação;
+  a construção da ISO foi excluída pelo usuário nesta etapa.
 
 ### Limpeza feita depois da mescla
 
@@ -123,7 +135,7 @@ A `main` local avançou até a ponta reconciliada (fast-forward), e as cópias e
 | Branch `trabalho-local-2026-09-11` | Virou a `main` |
 | Branch `tres-isos` | Já contida na `main` |
 | Branch `audit-public-2026-09-09` | Árvore idêntica a `3e0b344:documentation/auditoria-erros/2026-09-09`; é a semente do NVG-OS-DEBUG |
-| Remoto `neovosdev` | O repositório não existe mais (404 na API); o `neovosdev/main` já estava contido na `main` |
+| Remoto `neovosdev` (aposentado) | O repositório não existe mais (404 na API); o `neovosdev/main` (aposentado) já estava contido na `main` |
 | `build/perfis/myo/` | Perfil gerado da ISO MYO, que saiu da distro; ainda carregava a licença do Krohnkite |
 | Pacotes `*-1.0.0-1-*` em `pkgbuilds/` e `vendor/repo/` | Cópias idênticas entre si e fora do índice (que só tinha 1.2.0) |
 | `vendor/repo/*.tar.gz.old` | Backups do índice; o `build-aur.sh` reconstrói o índice do zero |
@@ -162,12 +174,31 @@ A revisão feita depois achou **três erros novos**, resolvidos na [sexta rodada
 - **NVG-11**: no mesmo arquivo, UDP 51820/1194 sai para qualquer host, não só para o servidor da VPN ([cadeia 09](✅-09-killswitch-vpn-saidas-fora-do-tunel.md)).
 - **NVG-12**: senha de disco vazia com criptografia passa na validação, e o `luksFormat` falha depois de o disco ter sido apagado ([cadeia 10](✅-10-senha-de-disco-vazia.md)).
 
-E continua faltando o que não é código ou depende de você:
+A [sétima rodada](correcoes-07.md) trata as pendências posteriores: fluxo de
+build AUR, destino de ISO, Actions Node 24, ferramenta WireGuard e falhas dos
+comandos de MAC. O usuário autorizou **1.2.1** e escolheu **guardar somente
+checksums**, construindo e validando as ISOs sem armazená-las. `neovos` e
+`neovosdev` estão aposentados; o remoto ativo é `osdev`, privado,
+`NEOpisa/neovanguard-os-dev`.
 
-1. **Versão repetida.** Os pacotes corrigidos continuam `1.2.0-1`, o mesmo número dos pacotes das ISOs de 10/09. Uma máquina que já tenha a 1.2.0 instalada **não recebe** as correções por `pacman -Syu`. Se a 1.2.0 saiu para alguém, é preciso subir o `VERSION` (1.2.1) ou o `pkgrel` antes da próxima ISO. A decisão é sua.
-2. **ISO nova.** As ISOs de `out/` não têm nenhuma correção deste documento. Para gerar: `./build-iso` (pede sudo).
-3. **Validação no hardware.** UID do Tor, rádios, hotplug, gerenciadores de rede, isolamento físico do air-gap e o primeiro boot Btrfs + systemd-boot (NVG-04) só foram exercitados em teste, nunca numa máquina ou VM.
-4. **Revisão criptográfica do `nvgs2`**, já pedida em `documentation/soberania.md` para o `neo-shamir` como um todo.
+Continua faltando:
+
+1. **Revisar e integrar a rodada 07.** A branch foi publicada no
+   [PR #7](https://github.com/NEOpisa/neovanguard-os-dev/pull/7), ainda sem merge.
+   O bloqueio de autenticação foi resolvido; o resultado do workflow `check`
+   está na aba Checks do PR. A ISO não será construída nesta etapa, por instrução do usuário.
+2. **Distribuir os pacotes 1.2.1-1.** A versão foi atualizada com autorização;
+   `pacman -Syu` só entrega as correções depois da publicação no repositório
+   de pacotes configurado no alvo. Os checksums do Actions não fazem isso.
+3. **ISO e validação em VM/hardware.** As ISOs de `out/` são antigas. Boot,
+   instalação offline, UID do Tor, rádios, hotplug, gerenciadores de rede e
+   primeiro boot Btrfs + systemd-boot continuam fora da validação desta rodada.
+4. **Revisão criptográfica independente do `nvgs2`**, já pedida em
+   `documentation/soberania.md`. Senha de conta vazia continua decisão do usuário.
+
+**Limpeza remota resolvida:** as três branches solicitadas foram excluídas
+com autorização em 12/09/2026; `git fetch --prune osdev` foi concluído.
+Nenhuma configuração ou segredo do GitHub foi alterado. Evidências na rodada 07.
 
 ## Publicação das rodadas 05 e 06
 

@@ -1,0 +1,10 @@
+CONFIRMADO wizard: seleção cold vem junto com menu e não corresponde ao case cold
+CONFIRMADO profile: profile.conf com profile=cold é lido como hot pela biblioteca
+CONFIRMADO vault btrfs: options  root=UUID=TESTE rw nvg.vault=1 modprobe.blacklist=btusb,bluetooth,btrtl,btintel,btbcm,iwlmvm,iwlwifi,ath9k,ath10k_pci,ath11k_pci,rtw88_pci,rtw89_pci,mt76x2e,r8169,e1000e,igb,igc,atlantic quiet loglevel=3
+CONFIRMADO vault luks: options  root=/dev/mapper/nvgroot rw nvg.vault=1 modprobe.blacklist=btusb,bluetooth,btrtl,btintel,btbcm,iwlmvm,iwlwifi,ath9k,ath10k_pci,ath11k_pci,rtw88_pci,rtw89_pci,mt76x2e,r8169,e1000e,igb,igc,atlantic quiet loglevel=3
+CONFIRMADO clean-dms: anuncia envio, mas só consulta e assina; nenhuma publicação
+CONFIRMADO flash: comando, destino e modelo perdidos antes da elevação
+CONFIRMADO mesh: bluetooth_pan e wifi_direct perdem o seletor antes da elevação
+CONFIRMADO sync: consulta inclui o relay local e deixa nota offline antiga sem publicar
+CONFIRMADO secureboot: falha em sign, mas setup retorna 0 e anuncia cadeia assinada
+CONFIRMADO paper: 24 das 96 células de aço ficam inteiramente abaixo da página (palavras 19–24)

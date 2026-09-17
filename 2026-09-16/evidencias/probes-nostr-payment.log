@@ -1,0 +1,2 @@
+CONFIRMADO RPC: evento de perfil com hash incorreto e assinatura zero é devolvido como válido ao chamador
+CONFIRMADO zap: solicitados 1000 sats; fatura de 250000 sats encaminhada ao pagador sem decodificar/comparar valor

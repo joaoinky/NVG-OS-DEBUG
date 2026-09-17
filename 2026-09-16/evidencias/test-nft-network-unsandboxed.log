@@ -1,0 +1,15 @@
+test_dhcp_remains_available (__main__.FirewallTraffic.test_dhcp_remains_available) ... ok
+test_existing_direct_connections_stop (__main__.FirewallTraffic.test_existing_direct_connections_stop) ... ok
+test_existing_dns_cannot_escape (__main__.FirewallTraffic.test_existing_dns_cannot_escape) ... ok
+test_lan_non_dns_remains_available (__main__.FirewallTraffic.test_lan_non_dns_remains_available) ... ok
+test_new_dns_reaches_local_tor_ports (__main__.FirewallTraffic.test_new_dns_reaches_local_tor_ports) ... ok
+test_tor_owner_dns_remains_direct (__main__.FirewallTraffic.test_tor_owner_dns_remains_direct) ... ok
+test_tor_owner_existing_connections_continue (__main__.FirewallTraffic.test_tor_owner_existing_connections_continue) ... ok
+test_vpn_dhcp (__main__.VpnTraffic.test_vpn_dhcp) ... ok
+test_vpn_dns_and_unrelated_udp_are_blocked (__main__.VpnTraffic.test_vpn_dns_and_unrelated_udp_are_blocked) ... ok
+test_vpn_endpoint_ipv4_ipv6_and_lan (__main__.VpnTraffic.test_vpn_endpoint_ipv4_ipv6_and_lan) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 8.016s
+
+OK

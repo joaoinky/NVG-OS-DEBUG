@@ -1,0 +1,9 @@
+test_auditoria_endpoint_ipv6_sem_cache (__main__.Prova.test_auditoria_endpoint_ipv6_sem_cache) ... Controle: endpoint funciona com vizinho IPv6 previamente resolvido
+CONFIRMADO: mesmo endpoint para de funcionar depois de esvaziar a tabela de vizinhos
+Controle: somente liberar NDP restaura o mesmo endpoint
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.678s
+
+OK

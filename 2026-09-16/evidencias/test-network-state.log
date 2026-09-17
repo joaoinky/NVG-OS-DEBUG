@@ -1,0 +1,22 @@
+test_command_failures_are_bounded_and_unknown (__main__.CommandFailures.test_command_failures_are_bounded_and_unknown) ... ok
+test_all_modes (__main__.Firewall.test_all_modes) ... ok
+test_changes_that_can_break_protection_are_not_verified (__main__.Firewall.test_changes_that_can_break_protection_are_not_verified) ... ok
+test_empty_rules_are_not_base_mode (__main__.Firewall.test_empty_rules_are_not_base_mode) ... ok
+test_malformed_and_unreadable_rules_are_unknown (__main__.Firewall.test_malformed_and_unreadable_rules_are_unknown) ... ok
+test_metadata_and_counter_changes_do_not_change_mode (__main__.Firewall.test_metadata_and_counter_changes_do_not_change_mode) ... ok
+test_vpn_endpoint_exceptions_are_exact_and_required (__main__.Firewall.test_vpn_endpoint_exceptions_are_exact_and_required) ... ok
+test_vpn_wildcard_and_loopback_are_not_verified (__main__.Firewall.test_vpn_wildcard_and_loopback_are_not_verified) ... ok
+test_interfaces_down_and_either_radio_block (__main__.Isolation.test_interfaces_down_and_either_radio_block) ... ok
+test_known_active_interface_still_disproves_airgap_when_rfkill_fails (__main__.Isolation.test_known_active_interface_still_disproves_airgap_when_rfkill_fails) ... ok
+test_loopback_only_and_no_radios (__main__.Isolation.test_loopback_only_and_no_radios) ... ok
+test_missing_or_invalid_evidence_is_unknown (__main__.Isolation.test_missing_or_invalid_evidence_is_unknown) ... ok
+test_no_carrier_is_not_administratively_down (__main__.Isolation.test_no_carrier_is_not_administratively_down) ... ok
+test_unblocked_bluetooth_prevents_isolation (__main__.Isolation.test_unblocked_bluetooth_prevents_isolation) ... ok
+test_virtual_interface_is_also_checked (__main__.Isolation.test_virtual_interface_is_also_checked) ... ok
+test_exit_codes_fresh_reads_and_untouched_markers (__main__.ShellAPI.test_exit_codes_fresh_reads_and_untouched_markers) ... ok
+test_package_installs_helper_and_references_together (__main__.ShellAPI.test_package_installs_helper_and_references_together) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.436s
+
+OK

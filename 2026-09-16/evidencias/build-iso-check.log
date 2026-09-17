@@ -1,0 +1,132 @@
+
+[38;2;100;149;237m══ Compondo os perfis[0m
+[38;2;100;149;237m▸[0m perfil mbn-live: 206 arquivos, 261 pacotes
+[38;2;100;149;237m▸[0m perfil mbn-install: 163 arquivos, 144 pacotes
+
+[38;2;100;149;237m══ Validation[0m
+[38;2;100;149;237m▸[0m script syntax
+[38;2;100;149;237m▸[0m the neo-* suite
+  [38;2;79;209;160m✔[0m neo suite: 55 commands, header and help check out
+  [38;2;242;101;122m✖[0m neo-install-vault-boot: `need bootctl systemd` — the package "systemd" does not exist in the repositories
+[38;2;100;149;237m▸[0m the package carries the whole of neo/
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.020s
+
+OK
+  (no package built — run ./neo/packaging/build-aur.sh to verify this)
+[38;2;100;149;237m▸[0m nftables rules
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/nftables/base.nft:
+    src/mnl.c:66: Unable to initialize Netlink socket: Operation not permitted
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/nftables/killswitch-tor.nft:
+    src/mnl.c:66: Unable to initialize Netlink socket: Operation not permitted
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/nftables/tor.nft:
+    src/mnl.c:66: Unable to initialize Netlink socket: Operation not permitted
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/nftables/killswitch-vpn.nft.in:
+    src/mnl.c:66: Unable to initialize Netlink socket: Operation not permitted
+[38;2;100;149;237m▸[0m systemd units
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/systemd/system/neo-clipboard-purge.service:
+    Failed to turn off SO_PASSRIGHTS on user lookup socket, ignoring: Operation not permitted
+    Failed to enable SO_PASSCRED on handoff timestamp socket: Operation not permitted
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/systemd/system/neo-vault.service:
+    Failed to turn off SO_PASSRIGHTS on user lookup socket, ignoring: Operation not permitted
+    Failed to enable SO_PASSCRED on handoff timestamp socket: Operation not permitted
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/systemd/system/nostr-relay.service:
+    Failed to turn off SO_PASSRIGHTS on user lookup socket, ignoring: Operation not permitted
+    Failed to enable SO_PASSCRED on handoff timestamp socket: Operation not permitted
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/systemd/user/neo-backup-nostr.service:
+    Failed to turn off SO_PASSRIGHTS on user lookup socket, ignoring: Operation not permitted
+    Failed to enable SO_PASSCRED on handoff timestamp socket: Operation not permitted
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/systemd/user/neo-backup-nostr.timer:
+    Failed to turn off SO_PASSRIGHTS on user lookup socket, ignoring: Operation not permitted
+    Failed to enable SO_PASSCRED on handoff timestamp socket: Operation not permitted
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/systemd/user/neo-clipboard-purge.service:
+    Failed to turn off SO_PASSRIGHTS on user lookup socket, ignoring: Operation not permitted
+    Failed to enable SO_PASSCRED on handoff timestamp socket: Operation not permitted
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/systemd/user/neo-clipboard-purge.timer:
+    Failed to turn off SO_PASSRIGHTS on user lookup socket, ignoring: Operation not permitted
+    Failed to enable SO_PASSCRED on handoff timestamp socket: Operation not permitted
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/neo/etc/systemd/user/nvg-nostr-agent.service:
+    Failed to turn off SO_PASSRIGHTS on user lookup socket, ignoring: Operation not permitted
+    Failed to enable SO_PASSCRED on handoff timestamp socket: Operation not permitted
+[38;2;100;149;237m▸[0m sysctl: every key exists on this kernel
+[38;2;100;149;237m▸[0m as três ISOs compõem o que dizem compor
+    (nenhum pacote construído — não dá para conferir o instalador)
+  [38;2;79;209;160m✔[0m perfis: 2 composições, rótulos distintos, sem colisão de fragmento
+[38;2;100;149;237m▸[0m as linhas de comando de kernel, por ISO
+  [38;2;79;209;160m✔[0m boot: 2 perfis, copytoram explícito em toda entrada
+[38;2;100;149;237m▸[0m the installer's calls into our binaries resolve
+  [38;2;79;209;160m✔[0m installer calls: 4 subcommands and flags check out
+[38;2;100;149;237m▸[0m the packages the installer offers exist
+  (o repositório local está vazio — vêm dele, e só o build-aur.sh
+   pode confirmá-los: neovanguard-base neovanguard-sovereignty)
+[38;2;100;149;237m▸[0m zsh syntax
+./build-iso: line 561: zsh: command not found
+  failed: /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/build/perfis/mbn-live/airootfs/usr/share/neovanguard/zsh/zshrc
+./build-iso: line 561: zsh: command not found
+  failed: /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/build/perfis/mbn-live/airootfs/usr/share/neovanguard/zsh/aliases.zsh
+[38;2;100;149;237m▸[0m theme XML and JSON
+[38;2;100;149;237m▸[0m plasmoid QML
+[38;2;100;149;237m▸[0m Frost materials and desktop controls
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.062s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 2.196s
+
+OK
+********* Start testing of qmltestrunner *********
+Config: Using QtTest library 6.11.1, Qt 6.11.1 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 16.1.1 20260430), arch unknown
+PASS   : qmltestrunner::FrostSeek::initTestCase()
+PASS   : qmltestrunner::FrostSeek::test_changed_player_cancels_seek()
+PASS   : qmltestrunner::FrostSeek::test_changed_track_cancels_seek()
+PASS   : qmltestrunner::FrostSeek::test_disabled_cancels_seek()
+PASS   : qmltestrunner::FrostSeek::test_keyboard_seeks()
+PASS   : qmltestrunner::FrostSeek::test_release_keeps_destination()
+PASS   : qmltestrunner::FrostSeek::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped, 0 blacklisted, 60ms
+********* Finished testing of qmltestrunner *********
+[38;2;100;149;237m▸[0m Plymouth script
+  (neovanguard.script: assets not generated — run ./build-iso --assets to check the images too)
+  1 script, no problems
+[38;2;100;149;237m▸[0m the live user's config matches /etc/skel
+[38;2;100;149;237m▸[0m global shortcuts without conflicts
+  profile-src/airootfs/grafico/etc/skel/.config/kglobalshortcutsrc:
+    no problems
+  
+  profile-src/airootfs/grafico/home/liveuser/.config/kglobalshortcutsrc:
+    no problems
+  
+  all shortcuts are clean.
+[38;2;100;149;237m▸[0m the theme's names resolve
+  /home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/profile-src/airootfs/grafico:
+    etc/xdg/kdeglobals does not exist — no colours in the cascade
+    etc/skel/.config/kdeglobals names ColorScheme=Birfree and no file in this image defines its colours
+    etc/skel/.config/kdeglobals names ColorScheme=Birfree, but usr/share/color-schemes/Birfree.colors is not shipped
+    home/liveuser/.config/kdeglobals names ColorScheme=Birfree and no file in this image defines its colours
+    home/liveuser/.config/kdeglobals names ColorScheme=Birfree, but usr/share/color-schemes/Birfree.colors is not shipped
+    etc/skel/.config/konsolerc names DefaultProfile=Birfree.profile, which is not in usr/share/konsole/
+    home/liveuser/.config/konsolerc names DefaultProfile=Birfree.profile, which is not in usr/share/konsole/
+    etc/skel/.config/kwinrc names the decoration Birfree, which is not in usr/share/aurorae/themes/
+    home/liveuser/.config/kwinrc names the decoration Birfree, which is not in usr/share/aurorae/themes/
+    etc/skel/.config/kdeglobals names the icon theme Dracula, which is not in usr/share/icons/
+    home/liveuser/.config/kdeglobals names the icon theme Dracula, which is not in usr/share/icons/
+    etc/skel/.config/kdeglobals names the global theme org.neovanguard.birfree, which is not in usr/share/plasma/look-and-feel/
+    home/liveuser/.config/kdeglobals names the global theme org.neovanguard.birfree, which is not in usr/share/plasma/look-and-feel/
+    etc/skel/.config/plasmarc names the Plasma Style Birfree, which is not in usr/share/plasma/desktoptheme/
+    home/liveuser/.config/plasmarc names the Plasma Style Birfree, which is not in usr/share/plasma/desktoptheme/
+  15 problem(s).
+[38;2;100;149;237m▸[0m the layout names widgets that exist
+[38;2;100;149;237m▸[0m dock pinned launchers
+[38;2;100;149;237m▸[0m packages exist in the repositories
+  (the local repository is empty — run ./neo/packaging/build-aur.sh
+   before building an ISO; nothing here can be resolved until then)
+[38;2;100;149;237m▸[0m the dependency tree closes (with the local repository)
+  (skipped: the local repository is empty)
+[38;2;100;149;237m▸[0m nothing collides with the packages' /etc/skel
+[38;2;100;149;237m▸[0m the version agrees everywhere
+[38;2;100;149;237m▸[0m the BIOS splash does not intrude on the menu
+[38;2;242;101;122m✖[0m fix the points above

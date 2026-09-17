@@ -1,0 +1,13 @@
+test_all_failed_and_missing_interface_are_errors (__main__.MacCommands.test_all_failed_and_missing_interface_are_errors) ... ok
+test_empty_inventory_is_an_error (__main__.MacCommands.test_empty_inventory_is_an_error) ... ok
+test_invalid_or_unavailable_permanent_address (__main__.MacCommands.test_invalid_or_unavailable_permanent_address) ... ok
+test_link_down_and_restore_failures_are_errors (__main__.MacCommands.test_link_down_and_restore_failures_are_errors) ... ok
+test_random_bytes_and_local_unicast_prefix (__main__.MacCommands.test_random_bytes_and_local_unicast_prefix) ... ok
+test_random_failure_or_short_read_never_changes_interface (__main__.MacCommands.test_random_failure_or_short_read_never_changes_interface) ... ok
+test_success_and_failure_are_both_reported (__main__.MacCommands.test_success_and_failure_are_both_reported) ... ok
+test_success_on_down_interface_does_not_raise_it (__main__.MacCommands.test_success_on_down_interface_does_not_raise_it) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.745s
+
+OK

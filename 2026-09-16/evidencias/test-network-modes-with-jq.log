@@ -1,0 +1,23 @@
+test_airgap_confirms_all_interfaces_and_radios_and_restores (__main__.NetworkModes.test_airgap_confirms_all_interfaces_and_radios_and_restores) ... ok
+test_airgap_failures_and_noops_never_report_success (__main__.NetworkModes.test_airgap_failures_and_noops_never_report_success) ... ok
+test_airgap_off_invalidates_first_and_preserves_inventory_on_failure (__main__.NetworkModes.test_airgap_off_invalidates_first_and_preserves_inventory_on_failure) ... ok
+test_common_mark_requires_verification_and_unknown_cannot_downgrade_curl (__main__.NetworkModes.test_common_mark_requires_verification_and_unknown_cannot_downgrade_curl) ... ok
+test_each_ruleset_replaces_previous_mode_and_records_evidence (__main__.NetworkModes.test_each_ruleset_replaces_previous_mode_and_records_evidence) ... ok
+test_external_reactivation_invalidates_cached_airgap_for_readers (__main__.NetworkModes.test_external_reactivation_invalidates_cached_airgap_for_readers) ... ok
+test_failed_noop_and_unreadable_firewall_never_create_protection_cache (__main__.NetworkModes.test_failed_noop_and_unreadable_firewall_never_create_protection_cache) ... ok
+test_interface_removed_by_manager_does_not_prevent_verified_airgap (__main__.NetworkModes.test_interface_removed_by_manager_does_not_prevent_verified_airgap) ... ok
+test_mode_commands_wait_for_the_shared_lock (__main__.NetworkModes.test_mode_commands_wait_for_the_shared_lock) ... ok
+test_requested_module_failure_is_reported_and_inventory_preserved (__main__.NetworkModes.test_requested_module_failure_is_reported_and_inventory_preserved) ... ok
+test_status_ignores_stale_files_and_recognizes_rules_without_markers (__main__.NetworkModes.test_status_ignores_stale_files_and_recognizes_rules_without_markers) ... ok
+test_status_missing_helper_is_unknown (__main__.NetworkModes.test_status_missing_helper_is_unknown) ... ok
+test_status_unknown_is_null_and_does_not_claim_direct_network (__main__.NetworkModes.test_status_unknown_is_null_and_does_not_claim_direct_network) ... ok
+test_unrecognized_firewall_and_cache_write_failure_are_not_success (__main__.NetworkModes.test_unrecognized_firewall_and_cache_write_failure_are_not_success) ... ok
+test_vpn_endpoints_fail_before_changing_firewall (__main__.NetworkModes.test_vpn_endpoints_fail_before_changing_firewall) ... ok
+test_vpn_explicit_and_discovered_ipv4_ipv6 (__main__.NetworkModes.test_vpn_explicit_and_discovered_ipv4_ipv6) ... ok
+test_vpn_missing_wg_reports_package_without_applying_rules (__main__.NetworkModes.test_vpn_missing_wg_reports_package_without_applying_rules) ... ok
+test_vpn_peer_without_endpoint_is_identified_and_fails_closed (__main__.NetworkModes.test_vpn_peer_without_endpoint_is_identified_and_fails_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 40.874s
+
+OK

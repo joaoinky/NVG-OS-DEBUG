@@ -1,0 +1,3 @@
+All four network policy references match the loaded nft rules
+Kernel probes recognize modes, detect tampering and observe interface flags
+Mode caches are created only after verification; changed rules invalidate trust

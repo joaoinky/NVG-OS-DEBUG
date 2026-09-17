@@ -1,0 +1,21 @@
+********* Start testing of qmltestrunner *********
+Config: Using QtTest library 6.11.1, Qt 6.11.1 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 16.1.1 20260430), arch unknown
+PASS   : qmltestrunner::FrostLogin::initTestCase()
+PASS   : qmltestrunner::FrostLogin::test_duplicate_submit_is_blocked()
+PASS   : qmltestrunner::FrostLogin::test_empty_username_does_not_authenticate()
+PASS   : qmltestrunner::FrostLogin::test_enter_submits_and_success_clears_secret()
+PASS   : qmltestrunner::FrostLogin::test_failure_clears_secret_and_returns_focus()
+PASS   : qmltestrunner::FrostLogin::test_missing_session_does_not_authenticate()
+PASS   : qmltestrunner::FrostLogin::cleanupTestCase()
+QWARN  : qmltestrunner::UnknownTestFunc() QObject::installEventFilter(): Cannot filter events for objects in a different thread.
+QWARN  : qmltestrunner::UnknownTestFunc() kf.windowsystem: Could not find any platform plugin
+QWARN  : qmltestrunner::UnknownTestFunc() kf.coreaddons: Couldn't establish file backed memory mapping, will fallback to anonymous memory
+PASS   : qmltestrunner::FrostSeek::initTestCase()
+PASS   : qmltestrunner::FrostSeek::test_changed_player_cancels_seek()
+PASS   : qmltestrunner::FrostSeek::test_changed_track_cancels_seek()
+PASS   : qmltestrunner::FrostSeek::test_disabled_cancels_seek()
+PASS   : qmltestrunner::FrostSeek::test_keyboard_seeks()
+PASS   : qmltestrunner::FrostSeek::test_release_keeps_destination()
+PASS   : qmltestrunner::FrostSeek::cleanupTestCase()
+Totals: 14 passed, 0 failed, 0 skipped, 0 blacklisted, 392ms
+********* Finished testing of qmltestrunner *********

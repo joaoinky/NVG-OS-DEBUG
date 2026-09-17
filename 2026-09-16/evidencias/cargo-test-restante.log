@@ -1,0 +1,135 @@
+   Compiling mio v1.2.2
+   Compiling either v1.17.0
+   Compiling lru v0.18.2
+   Compiling tokio v1.53.1
+   Compiling tokio-rustls v0.26.4
+   Compiling tokio-happy-eyeballs v0.1.0
+   Compiling tokio-socks v0.5.3
+   Compiling tokio-util v0.7.19
+   Compiling nostr-memory v0.45.1
+   Compiling async-utility v0.3.2
+   Compiling tokio-tungstenite v0.28.0
+   Compiling tokio-stream v0.1.19
+   Compiling async-wsocket v0.17.0
+   Compiling nostr-sdk v0.45.2
+   Compiling nvg-nostr v1.0.0 (/home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/rust/nvg-nostr)
+   Compiling nvg-nostr-agent v1.0.0 (/home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/rust/nvg-nostr-agent)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 19.91s
+     Running unittests src/lib.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/nvg_nostr_agent-bcd6638de4f6721a)
+
+running 15 tests
+test nip46::testes::o_segredo_tem_32_hex_e_nao_repete ... ok
+test par::testes::processo_que_nao_existe_da_zero ... ok
+test par::testes::nascimento_do_proprio_processo_nao_e_zero ... ok
+test nip46::testes::sem_connect_nao_ha_sessao ... ok
+test protocolo::testes::encurtar_nao_quebra_chave_curta ... ok
+test nip46::testes::carencia_vale_para_um_cliente_so ... ok
+test nip46::testes::a_uri_do_bunker_tem_as_tres_partes ... ok
+test nip46::testes::pedido_autorizado_nao_usa_chave_apos_parada ... ok
+test nip46::testes::o_teto_de_ritmo_segura_o_laco ... ok
+test protocolo::testes::resumo_cabe_no_prompt ... ok
+test protocolo::testes::assina_com_tags ... ok
+test protocolo::testes::o_cliente_nao_escolhe_o_id_do_evento ... ok
+test nip46::testes::nip04_interopera_com_o_formato_do_protocolo ... ok
+test protocolo::testes::nip44_ida_e_volta ... ok
+test prompt::testes::encerra_e_recolhe_prompt_que_nao_responde ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running unittests src/main.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/nvg_nostr_agent-ff9807b87d044958)
+
+running 3 tests
+test testes::preserva_pedidos_agrupados_e_recusa_linha_incompleta ... ok
+test testes::cliente_silencioso_nao_impede_expiracao ... ok
+test testes::limita_pedido_sem_quebra_de_linha ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/nip46_ponta_a_ponta.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/nip46_ponta_a_ponta-38cadf3b8cc5e7d5)
+
+running 1 test
+test conectar_perguntar_e_ser_recusado_sem_segredo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.96s
+
+     Running unittests src/lib.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/nvg_palette-6de82d5e8e88a921)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/nvg-palette-gen.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/nvg_palette_gen-6d641a144589c23d)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/fidelidade.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/fidelidade-8ea03addf7d529f1)
+
+running 15 tests
+test o_accent_escolhido_volta_igual_nos_dois_modos ... ok
+test cor_invalida_da_erro_em_vez_de_pane ... ok
+test derivar_e_deterministico ... ok
+test cornflower_reproduz_a_paleta_oficial_byte_a_byte ... ok
+test o_modo_claro_do_birfree_tem_nome_proprio ... ok
+test o_kdeglobals_carrega_os_blocos_de_cor ... ok
+test o_preset_cornflower_e_a_paleta_oficial ... ok
+test o_template_acompanha_a_paleta ... ok
+test o_template_troca_todo_token_e_recusa_os_que_nao_conhece ... ok
+test o_modo_claro_inverte_as_superficies_e_preserva_a_rampa ... ok
+test os_estados_nao_giram_com_o_accent ... ok
+test todo_papel_tem_cor ... ok
+test todas_as_paletas_prontas_sao_legiveis ... ok
+test os_formatos_saem_com_o_que_o_consumidor_espera ... ok
+test o_colors_e_o_kdeglobals_dizem_a_mesma_cor ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/main.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/nvg_theme-3fbf29624c486095)
+
+running 12 tests
+test testes::com_root_nada_escapa_do_prefixo ... ok
+test testes::a_escolha_gravada_volta_igual ... ok
+test testes::accent_livre_sobrevive_a_volta ... ok
+test testes::no_modo_usuario_a_escolha_nao_vai_para_etc ... ok
+test testes::o_kdeglobals_inteiro_e_so_do_modo_sistema ... ok
+test testes::conf_vazio_da_erro_em_vez_de_paleta_torta ... ok
+test testes::conf_editado_a_mao_e_aceito ... ok
+test testes::root_implica_sistema_e_nao_toca_no_home ... ok
+test testes::sem_root_os_caminhos_sao_absolutos ... ok
+test testes::sem_root_o_alvo_e_o_usuario ... ok
+test testes::template_ausente_nao_derruba_a_aplicacao ... ok
+test testes::o_template_nao_deixa_token_para_tras ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/nvg_update-793df1d2c19a5689)
+
+running 11 tests
+test fontes::testes::arch_audit_com_e_sem_versao ... ok
+test fontes::testes::flatpak_com_versao_e_sem ... ok
+test fontes::testes::linha_que_nao_e_atualizacao_nao_conta ... ok
+test fontes::testes::checkupdates_vira_lista ... ok
+test fontes::testes::saida_vazia_e_lista_vazia ... ok
+test fontes::testes::sem_ferramenta_nao_conta_como_em_dia ... ok
+test testes::o_singular_do_pacote ... ok
+test testes::o_resumo_conta_o_que_ha ... ok
+test testes::zero_sem_resposta_nao_e_tudo_em_dia ... ok
+test testes::sem_escolha_consulta_todas_as_fontes ... ok
+test fontes::testes::programa_inexistente_e_erro_sem_motivo ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests nvg_nostr_agent
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests nvg_palette
+
+running 1 test
+test nvg-palette/src/lib.rs - (line 7) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+

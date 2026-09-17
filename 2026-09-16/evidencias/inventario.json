@@ -1,0 +1,122 @@
+[
+  {
+    "id": "NVG-13",
+    "name": "NVG-13-particao-da-midia-live.md",
+    "title": "Partições da mídia Live são aceitas como destino manual",
+    "severity": "alta"
+  },
+  {
+    "id": "NVG-14",
+    "name": "NVG-14-raiz-esp-home-sobrepostas.md",
+    "title": "A mesma partição pode ser raiz, ESP e home",
+    "severity": "alta"
+  },
+  {
+    "id": "NVG-15",
+    "name": "NVG-15-usuario-reservado.md",
+    "title": "O instalador aceita root como nova conta e falha depois da formatação",
+    "severity": "alta"
+  },
+  {
+    "id": "NVG-16",
+    "name": "NVG-16-boot-vault-perde-parametros.md",
+    "title": "A entrada Cold Vault perde parâmetros necessários para Btrfs e LUKS",
+    "severity": "alta"
+  },
+  {
+    "id": "NVG-17",
+    "name": "NVG-17-cofre-links-no-destino.md",
+    "title": "Aplicação privilegiada do cofre segue links no home e no temporário",
+    "severity": "alta"
+  },
+  {
+    "id": "NVG-18",
+    "name": "NVG-18-restauracao-instalador-sem-filtros.md",
+    "title": "Restauração do instalador ignora a lista de arquivos permitidos",
+    "severity": "alta"
+  },
+  {
+    "id": "NVG-19",
+    "name": "NVG-19-envelope-causa-panic.md",
+    "title": "Tamanho não autenticado do envelope pode abortar o processo",
+    "severity": "média"
+  },
+  {
+    "id": "NVG-20",
+    "name": "NVG-20-limpeza-dms-nao-publica.md",
+    "title": "Limpeza de DMs anuncia envio sem publicar pedidos de exclusão",
+    "severity": "média"
+  },
+  {
+    "id": "NVG-21",
+    "name": "NVG-21-elevacao-perde-argumentos.md",
+    "title": "Flash e transportes mesh perdem a ação ao executar sudo",
+    "severity": "média"
+  },
+  {
+    "id": "NVG-22",
+    "name": "NVG-22-sync-ignora-eventos-offline.md",
+    "title": "Sincronização deixa eventos offline antigos sem publicar",
+    "severity": "média"
+  },
+  {
+    "id": "NVG-23",
+    "name": "NVG-23-secureboot-sucesso-falso.md",
+    "title": "Setup de Secure Boot anuncia cadeia assinada após falha",
+    "severity": "alta"
+  },
+  {
+    "id": "NVG-24",
+    "name": "NVG-24-matriz-24-palavras-cortada.md",
+    "title": "Matriz de aço para 24 palavras ultrapassa a página",
+    "severity": "média"
+  },
+  {
+    "id": "NVG-25",
+    "name": "NVG-25-wizard-captura-menu.md",
+    "title": "Primeiro boot captura o menu junto com a resposta",
+    "severity": "alta"
+  },
+  {
+    "id": "NVG-26",
+    "name": "NVG-26-perfil-gravado-nao-lido.md",
+    "title": "Perfil é gravado em arquivo e chave diferentes dos que são lidos",
+    "severity": "média"
+  },
+  {
+    "id": "NVG-27",
+    "name": "NVG-27-vpn-ipv6-sem-ndp.md",
+    "title": "Kill-switch impede endpoint IPv6 quando o cache de vizinhos esvazia",
+    "severity": "média"
+  },
+  {
+    "id": "NVG-28",
+    "name": "NVG-28-teste-depende-da-gpu.md",
+    "title": "Teste do manifesto falha em hosts NVIDIA e bloqueia o check",
+    "severity": "média"
+  },
+  {
+    "id": "NVG-29",
+    "name": "NVG-29-rpc-aceita-evento-forjado.md",
+    "title": "Cliente Nostr aceita perfil com hash e assinatura inválidos",
+    "severity": "alta"
+  },
+  {
+    "id": "NVG-30",
+    "name": "NVG-30-zap-nao-confere-valor.md",
+    "title": "Zap não compara o valor da fatura com os sats solicitados",
+    "severity": "alta"
+  },
+  {
+    "id": "NVG-31",
+    "name": "NVG-31-assinatura-descarta-tags.md",
+    "title": "CLI de assinatura ignora --tag e envia um evento sem referências",
+    "severity": "média"
+  },
+  {
+    "id": "NVG-32",
+    "name": "NVG-32-verificador-pacotes-falso-alarme.md",
+    "title": "Verificador anuncia pacote inexistente por conflito do host",
+    "severity": "baixa"
+  }
+]

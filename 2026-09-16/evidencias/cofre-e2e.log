@@ -1,0 +1,17 @@
+   Compiling cipher v0.4.4
+   Compiling chacha20 v0.9.1
+   Compiling chacha20poly1305 v0.10.1
+   Compiling nostr v0.45.3
+   Compiling nostr-database v0.45.1
+   Compiling nostr-gossip v0.45.0
+   Compiling nostr-memory v0.45.1
+   Compiling nostr-sdk v0.45.2
+   Compiling nvg-nostr v1.0.0 (/home/joao/Documents/Neovanguard-OS-area/neovanguard-os-dev/rust/nvg-nostr)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 15.73s
+     Running tests/cofre_ponta_a_ponta.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/cofre_ponta_a_ponta-f7d5e0d5fb000efa)
+
+running 1 test
+test do_pacote_ao_home ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+

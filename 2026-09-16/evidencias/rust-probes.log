@@ -1,0 +1,51 @@
+   Compiling nvg-nostr v1.0.0 (/tmp/nvg-audit-rust-hc3v87xh/rust/nvg-nostr)
+   Compiling nvg-installer v1.0.0 (/tmp/nvg-audit-rust-hc3v87xh/rust/nvg-installer)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.89s
+     Running unittests src/main.rs (/tmp/nvg-audit-2026-09-15/target-probes/debug/deps/nvg_installer-fced0e010b726218)
+
+running 3 tests
+CONFIRMADO: usuário aceito no preflight: root
+CONFIRMADO: raiz da mídia Live aceita com formatação habilitada
+CONFIRMADO: usuário aceito no preflight: daemon
+test install::auditoria_20260915::manual_aceita_particao_da_midia_live ... ok
+test install::auditoria_20260915::contas_reservadas_passam_no_preflight ... ok
+CONFIRMADO: ESP vfat de 512 MiB aceita simultaneamente como raiz formatada, ESP e home
+test install::auditoria_20260915::manual_aceita_raiz_esp_home_iguais_e_pequenos ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 68 filtered out; finished in 1.87s
+
+     Running unittests src/lib.rs (/tmp/nvg-audit-2026-09-15/target-probes/debug/deps/nvg_nostr-f998ff96d8e75592)
+
+running 1 test
+test cofre::testes::auditoria_so_acrescenta ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 55 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (/tmp/nvg-audit-2026-09-15/target-probes/debug/deps/nvg_nostr-05c2f8392cf1c933)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/auditoria_20260915.rs (/tmp/nvg-audit-2026-09-15/target-probes/debug/deps/auditoria_20260915-44d7d2475ecc2c08)
+
+running 3 tests
+
+thread 'auditoria_envelope_nao_autenticado_causa_panic' (253) panicked at library/alloc/src/raw_vec/mod.rs:28:5:
+capacity overflow
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+CONFIRMADO: capacity overflow antes de decifrar/autenticar qualquer bloco
+test auditoria_envelope_nao_autenticado_causa_panic ... ok
+CONFIRMADO: caminho fora da lista escrito pela função usada no instalador
+test auditoria_instalador_extrai_arquivo_fora_da_lista ... ok
+CONFIRMADO: diretório e temporário simbólicos permitem escrita fora do home
+test auditoria_aplicacao_do_cofre_segue_link_no_home ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/cofre_ponta_a_ponta.rs (/tmp/nvg-audit-2026-09-15/target-probes/debug/deps/cofre_ponta_a_ponta-dbc04b93cf28a3f2)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+

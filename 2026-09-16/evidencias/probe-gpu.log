@@ -1,0 +1,30 @@
+GPU simulada: NVIDIA exit: 101
+
+running 1 test
+test manifest::testes::aceleracao_so_com_a_gpu_certa ... FAILED
+
+failures:
+
+---- manifest::testes::aceleracao_so_com_a_gpu_certa stdout ----
+
+thread 'manifest::testes::aceleracao_so_com_a_gpu_certa' (283) panicked at nvg-nostr/src/manifest.rs:304:9:
+assertion `left == right` failed
+  left: "cuda"
+ right: "nenhuma"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    manifest::testes::aceleracao_so_com_a_gpu_certa
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 55 filtered out; finished in 0.01s
+
+
+GPU simulada: Intel exit: 0
+
+running 1 test
+test manifest::testes::aceleracao_so_com_a_gpu_certa ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 55 filtered out; finished in 0.01s
+
+

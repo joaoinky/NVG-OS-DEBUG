@@ -1,0 +1,152 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.41s
+     Running unittests src/main.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/nvg_installer-a206a90b2e5044df)
+
+running 68 tests
+test app::testes::a_identidade_e_a_conta_valem_nos_dois_modos ... ok
+test app::testes::as_duas_sequencias_comecam_e_terminam_igual ... ok
+test app::testes::a_mbn_nao_oferece_formato_programas_nem_aparencia ... ok
+test app::testes::a_tela_de_rede_esta_nos_dois_modos ... ok
+test app::testes::a_tela_de_sistema_e_so_da_myo ... ok
+test app::testes::cada_ambiente_traz_o_seu_greeter ... ok
+test app::testes::carimbo_absurdo_nao_estoura ... ok
+test app::testes::carimbo_no_futuro_e_recusado_e_o_motivo_diz_quanto ... ok
+test app::testes::conta_nostr_aceita_senha_curta ... ok
+test app::testes::a_midia_live_nunca_passa_na_validacao ... ok
+test app::testes::a_linha_da_particao_comeca_pelo_caminho ... ok
+test app::testes::a_lista_de_pacotes_nao_repete ... ok
+test app::testes::conjunto_obrigatorio_continua_marcado ... ok
+test app::testes::conta_e_disco_nao_impoem_tamanho_minimo ... ok
+test app::testes::conta_nostr_sem_identidade_nao_passa ... ok
+test app::testes::as_palavras_sorteadas_derivam_chave ... ok
+test app::testes::layout_recusa_cifrar_particao_mantida ... ok
+test app::testes::criptografia_exige_frase_e_confirmacao ... ok
+test app::testes::o_modo_e_lido_do_arquivo ... ok
+test app::testes::modo_manual_em_uefi_exige_esp ... ok
+test app::testes::o_cache_de_pacotes_nasce_preenchido ... ok
+test app::testes::perfil_de_hoje_passa ... ok
+test app::testes::relogio_adiantado_dentro_da_folga_passa ... ok
+test app::testes::o_disco_padrao_nao_e_a_midia_live ... ok
+test app::testes::sem_arquivo_o_modo_e_myo ... ok
+test app::testes::em_bios_legado_o_padrao_e_grub ... ok
+test app::testes::disco_pequeno_demais_reprova_dizendo_os_dois_tamanhos ... ok
+test app::testes::o_cache_segue_os_conjuntos_escolhidos ... ok
+test disk::testes::a_linha_do_disco_mostra_a_tabela ... ok
+test disk::testes::human_arredonda_para_a_unidade_certa ... ok
+test app::testes::sem_disco_a_tela_recusa ... ok
+test app::testes::sem_ambiente_nao_ha_plasma ... ok
+test app::testes::senhas_que_nao_conferem_sao_recusadas ... ok
+test app::testes::o_piso_de_disco_vem_do_payload_quando_ele_foi_medido ... ok
+test app::testes::palavras_sorteadas_precisam_ser_anotadas ... ok
+test install::testes::criptografia_nao_pode_destruir_raiz_mantida ... ok
+test install::testes::dados_da_conta_nao_injetam_registros_ou_hostname ... ok
+test install::testes::fstab_substitui_destinos_sem_duplicar_e_preserva_outros ... ok
+test install::testes::initramfs_cifrado_tem_hook_antes_do_sistema_de_arquivos ... ok
+test app::testes::usuario_invalido_e_recusado ... ok
+test install::testes::conta_comum_nao_leva_identidade ... ok
+test app::testes::a_lista_sempre_leva_o_neovanguard_base ... ok
+test install::testes::a_senha_vai_para_o_chpasswd_e_nao_para_o_perfil ... ok
+test install::testes::btrfs_novo_seleciona_o_subvolume_raiz_no_boot ... ok
+test install::testes::no_modo_mbn_o_plano_nunca_e_pacstrap ... ok
+test install::testes::modo_manual_so_aceita_caminho_de_dispositivo ... ok
+test install::testes::nome_chega_literal_ao_useradd ... ok
+test midia::testes::conf_le_as_quatro_chaves_e_ignora_comentario ... ok
+test midia::testes::conf_sem_rotulo_e_recusada ... ok
+test install::testes::a_myo_sem_rede_para_na_tela_de_rede ... ok
+test midia::testes::sha256_em_blocos_bate_com_o_valor_conhecido ... ok
+test install::testes::o_plano_leva_o_disco_escolhido ... ok
+test install::testes::senhas_sao_dados_para_chpasswd_sem_interpretacao ... ok
+test perfil::testes::mesmo_repo_mantem_a_versao ... ok
+test install::testes::na_myo_o_plano_e_sempre_pacstrap ... ok
+test install::testes::plano_invalido_termina_sem_executar_comandos ... ok
+test perfil::testes::o_manifesto_nunca_leva_disco ... ok
+test rede::testes::as_barras_cabem_em_quatro_colunas ... ok
+test rede::testes::le_a_tabela_do_iwctl_inclusive_com_espaco_no_nome ... ok
+test rede::testes::nao_inventa_rede_a_partir_do_cabecalho ... ok
+test rede::testes::saida_desconhecida_nao_vira_rede ... ok
+test perfil::testes::o_manifesto_nunca_leva_segredo ... ok
+test perfil::testes::repo_novo_zera_a_versao_do_cofre ... ok
+test perfil::testes::aplicar_nao_toca_em_disco_nem_em_senha ... ok
+test perfil::testes::republicar_preserva_o_que_esta_versao_nao_conhece ... ok
+test midia::testes::sha256_atravessa_mais_de_um_bloco ... ok
+test install::testes::senha_de_disco_invalida_para_antes_de_qualquer_comando ... ok
+test install::testes::a_identidade_atravessa_cifrada_e_so_abre_com_a_senha ... ok
+
+test result: ok. 68 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.45s
+
+     Running unittests src/lib.rs (/tmp/nvg-audit-2026-09-15/target/debug/deps/nvg_nostr-a26e678b65477d00)
+
+running 56 tests
+test chave::testes::conta_errada_de_palavras_diz_quantas_vieram ... ok
+test cofre::testes::auditoria_so_acrescenta ... ok
+test chave::testes::palavra_trocada_e_recusada ... ok
+test cofre::testes::caminho_recusa_fuga ... ok
+test cofre::testes::caminho_recusa_link_plantado ... ok
+test cofre::testes::escrever_e_ler ... ok
+test cofre::testes::esqueleto_fica_setecentos ... ok
+test cofre::testes::selo_nao_anda_para_tras ... ok
+test cofre::testes::selo_recusa_carimbo_no_futuro ... ok
+test confianca::testes::assinatura_de_outra_chave_nao_passa ... ok
+test confianca::testes::conteudo_mexido_nao_passa ... ok
+test configs::testes::a_url_sai_no_raw_do_github ... ok
+test configs::testes::a_soma_pega_pacote_adulterado ... ok
+test configs::testes::caminho_que_sobe_e_recusado ... ok
+test configs::testes::nome_de_repo_com_barra_avisa_do_dono ... ok
+test configs::testes::o_arquivo_do_repo_nao_vaza_o_conteudo ... ok
+test chave::testes::segue_o_vetor_do_nip06 ... ok
+test configs::testes::o_pacote_atravessa_dois_homes ... ok
+test configs::testes::outra_chave_nao_abre ... ok
+test configs::testes::repo_que_desvia_a_url_e_recusado ... ok
+test configs::testes::repo_valido_passa ... ok
+test delegacao::testes::a_tag_tem_os_quatro_campos_na_ordem ... ok
+test delegacao::testes::bilhete_de_outra_chave_nao_passa ... ok
+test delegacao::testes::bilhete_vencido_e_recusado ... ok
+test chave::testes::as_palavras_derivam_sempre_a_mesma_chave ... ok
+test delegacao::testes::condicoes_mexidas_invalidam ... ok
+test delegacao::testes::ida_e_volta ... ok
+test delegacao::testes::sem_prazo_e_sem_kinds_e_recusado ... ok
+test dono::testes::resolve_quem_esta_rodando ... ok
+test github::testes::a_credencial_nao_duplica ... ok
+test dono::testes::usuario_que_nao_existe_da_erro_claro ... ok
+test manifest::testes::campos_desconhecidos_sobrevivem ... ok
+test manifest::testes::manifesto_sem_cofre_le_e_nao_inventa ... ok
+test manifest::testes::manifesto_vazio_le_sem_erro ... ok
+test manifest::testes::nao_serializa_segredo_nem_disco ... ok
+test manifest::testes::o_ponteiro_do_cofre_sobrevive ... ok
+test pacote::testes::caminho_absoluto_nao_escapa ... ok
+test configs::testes::o_envelope_tem_mesmo_varios_blocos ... ok
+test manifest::testes::aceleracao_so_com_a_gpu_certa ... FAILED
+test pacote::testes::lista_branca_cobre_pasta_e_arquivo ... ok
+test pacote::testes::manifesto_muda_quando_arquivo_some ... ok
+test pacote::testes::peneira_recusa_link ... ok
+test pacote::testes::peneira_recusa_o_que_nao_esta_na_lista ... ok
+test pacote::testes::ponto_ponto_nao_escapa ... ok
+test rede::testes::a_critica_nunca_ecoa_a_chave ... ok
+test rede::testes::hex_de_64_e_aceito ... ok
+test pacote::testes::ida_e_volta_pelo_tar ... ok
+test rede::testes::npub_nao_serve_para_ler ... ok
+test rede::testes::relays_padrao_sao_wss ... ok
+test configs::testes::ida_e_volta_da_cifra ... ok
+test rede::testes::ida_e_volta_num_relay_local ... ok
+test pacote::testes::descomprimir_para_no_teto ... ok
+test chave::testes::o_arquivo_guardado_nao_vaza_a_nsec ... ok
+test chave::testes::o_ncryptsec_do_instalador_abre_com_a_senha ... ok
+test chave::testes::a_chave_cifrada_volta_com_a_senha_certa ... ok
+test chave::testes::senha_sem_minimo_cifra_e_decifra ... ok
+
+failures:
+
+---- manifest::testes::aceleracao_so_com_a_gpu_certa stdout ----
+
+thread 'manifest::testes::aceleracao_so_com_a_gpu_certa' (57694) panicked at nvg-nostr/src/manifest.rs:304:9:
+assertion `left == right` failed
+  left: "cuda"
+ right: "nenhuma"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    manifest::testes::aceleracao_so_com_a_gpu_certa
+
+test result: FAILED. 55 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 21.18s
+
+error: test failed, to rerun pass `-p nvg-nostr --lib`
