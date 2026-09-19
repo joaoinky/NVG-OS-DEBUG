@@ -1,35 +1,36 @@
-# Neovanguard — walkthrough dos erros por causa e efeito
+# Auditoria inicial — NVG-01 a NVG-12
 
-Análise de **09/09/2026**, sobre a árvore local da versão **1.2.0 em preparação**, commit `9bb3e666e938aa8c7ac746eed7a5ea69f11b46d4`. A árvore estava sem alterações no início. Foram acrescentados somente estes documentos.
+Revisão iniciada em **09/09/2026**, sobre a versão 1.2.0 em preparação,
+commit `9bb3e666e938aa8c7ac746eed7a5ea69f11b46d4`. A pasta conserva seu
+nome histórico; a data da auditoria é a registrada neste documento.
 
-A análise original encontrou **9 erros em 8 cadeias**. A revisão de **11/09/2026**, feita depois das correções, acrescentou **3 erros em 2 cadeias** (09 e 10), no mesmo formato; ali as linhas citadas são as da árvore de 11/09. Cada arquivo acompanha a entrada ou ação do usuário, a origem do defeito, sua propagação e o efeito observável ou esperado. Os links entre cadeias distinguem dependência de execução de semelhança de diagnóstico. As cadeias descrevem o problema; o que foi corrigido está nas seções "Solução aplicada" e nos registros de rodada.
+Foram encontrados nove problemas na primeira análise e mais três na revisão
+de 11/09. Os dez relatórios abaixo acompanham a causa de cada falha e seu
+efeito na instalação, na rede ou na recuperação de sementes.
 
-## Estado das correções (atualizado em 12/09/2026)
+[Visão geral do repositório](../README.md) ·
+[Auditoria seguinte](../2026-09-16/README.md)
 
-**As oito cadeias originais estão corrigidas no código.** NVG-01 a NVG-04 foram corrigidos no commit `3e0b344`. NVG-05 a NVG-08 foram corrigidos nos PRs #1, #2 e #3 do `neovanguard-os-dev`, que chegaram à `main` pelo PR #4. Onde houve duas correções para o mesmo erro (NVG-05), prevaleceu a do `neovanguard-os-dev`. O NVG-09 foi corrigido na quinta rodada.
+## Situação das correções
 
-**As dez cadeias estão corrigidas no código.** NVG-10, NVG-11 e NVG-12 foram resolvidos na [sexta rodada](correcoes-06.md). A lista completa do que falta, inclusive o que não é código, está em [reconciliação](reconciliacao-2026-09-11.md#o-que-falta-corrigir).
+Os 12 problemas foram corrigidos no escopo registrado. A
+[conferência de 16/09](../2026-09-16/correcoes-verificadas.md) reavaliou
+essas correções e manteve o resultado, com as ressalvas de boot, hardware
+e sistema instalado.
 
-As quinta e sexta rodadas foram integradas ao `neovanguard-os-dev` pelo
-[PR #5](https://github.com/NEOpisa/neovanguard-os-dev/pull/5), merge
-`034f0d7`, depois do CI completo. A cópia pública desta auditoria foi proposta
-no [NVG-OS-DEBUG #1](https://github.com/joaoinky/NVG-OS-DEBUG/pull/1).
+NVG-01 a NVG-04 foram tratados em `3e0b344`; NVG-05 a NVG-08, nos
+PRs #1–#3, integrados pelo [PR #4](https://github.com/NEOpisa/neovanguard-os-dev/pull/4).
+NVG-09 foi resolvido na quinta rodada; NVG-10 a NVG-12, na sexta.
+Essas duas rodadas chegaram à main pelo
+[PR #5](https://github.com/NEOpisa/neovanguard-os-dev/pull/5).
 
-O registro da publicação foi integrado pelo [PR #6](https://github.com/NEOpisa/neovanguard-os-dev/pull/6),
-merge `318c283`, base limpa da **[sétima rodada](correcoes-07.md)**. Esta rodada
-foi publicada na branch `fix/pendencias-pos-auditoria`, no
-[PR #7](https://github.com/NEOpisa/neovanguard-os-dev/pull/7), após resolver
-o escopo OAuth `workflow`. O resultado do CI `check` está na aba Checks do PR.
-A limpeza das três branches antigas foi concluída. O usuário
-pediu expressamente para **não construir a ISO agora**, autorizou 1.2.1 e escolheu
-armazenar apenas checksums no Actions. Os destinos `neovos`/`neovosdev` estão
-aposentados; o repositório ativo é o privado `NEOpisa/neovanguard-os-dev`.
+A sétima rodada tratou pendências de build, empacotamento e entrega da
+versão 1.2.1. Foi integrada pelo
+[PR #7](https://github.com/NEOpisa/neovanguard-os-dev/pull/7);
+a indicação “ainda sem merge” no documento daquela rodada registra o
+momento em que ele foi escrito.
 
-Registros: [primeira](correcoes-01.md), [segunda](correcoes-02.md), [terceira (substituída)](correcoes-03.md), [quarta](correcoes-04.md), [quinta](correcoes-05.md), [sexta](correcoes-06.md) e [sétima](correcoes-07.md) rodadas. A comparação entre esta pasta, o repositório NVG-OS-DEBUG e o `neovanguard-os-dev`, com o inventário do trabalho local que estava fora do git, está em **[reconciliação](reconciliacao-2026-09-11.md)**.
-
-Os nomes dos arquivos dizem o estado: `✅` resolvido, `❌` pendente. Os walkthroughs preservam o diagnóstico original; as linhas citadas neles são as do commit auditado.
-
-## Ordem de leitura e lista de erros
+## Relatórios
 
 | Cadeia | Erros | O que dá errado | Impacto | Estado |
 |---|---|---|---|---|
@@ -44,49 +45,45 @@ Os nomes dos arquivos dizem o estado: `✅` resolvido, `❌` pendente. Os walkth
 | [09 — Kill-switch de VPN](✅-09-killswitch-vpn-saidas-fora-do-tunel.md) | NVG-10, NVG-11 | DNS para o resolvedor da LAN sai fora do túnel; UDP 51820/1194 sai para qualquer host | Alto / Médio | **Resolvido** (6ª rodada) |
 | [10 — Senha de disco vazia](✅-10-senha-de-disco-vazia.md) | NVG-12 | Criptografia com senha vazia passa na validação, e o `luksFormat` falha depois de o disco ser apagado | Alto | **Resolvido** (6ª rodada) |
 
-A gravidade expressa a consequência no cenário descrito, não a frequência de ocorrência.
 
-## Mapa dos pontos de toque
+A gravidade se refere à consequência no cenário descrito. Os relatórios
+preservam o diagnóstico original; procure a seção “Solução aplicada” e
+as rodadas de correção para acompanhar o desfecho.
 
-```mermaid
-flowchart TD
-    A["Entrada do instalador"] --> B["01: conta interpretada pelo shell"]
-    A --> C["02: preservação contradita por LUKS"]
-    C -. "mesmo fluxo de montagem" .-> D["03: raiz Btrfs e primeiro boot"]
-    E["Comandos de rede"] --> F["04: regras e marcadores divergem"]
-    E --> G["05: conexões anteriores aceitas"]
-    E --> H["06: DNS privado fora do Tor"]
-    E --> I["07: air-gap anuncia sucesso após falhas"]
-    F --> J["neo-status"]
-    I --> J
-    K["Partes de sementes"] --> L["08: reconstrução de outra semente"]
-    E --> M["09: kill-switch de VPN vaza DNS e UDP"]
-    M -. "mesmo vazamento de DNS" .-> H
-    M --> J
-    A --> N["10: senha de disco vazia"]
-    N -. "mesmo luksFormat" .-> C
-    N -. "mesmo padrão de falha tardia" .-> B
-```
+## Histórico das rodadas
 
-As cadeias 01 a 03 e 10 atravessam a instalação. As cadeias 04 a 07 e 09 atravessam os comandos de rede e o diagnóstico. A cadeia 08 acompanha a recuperação de uma semente e não depende dos erros de rede.
+[01 — primeira](correcoes-01.md) ·
+[02 — segunda](correcoes-02.md) ·
+[03 — substituída](correcoes-03.md) ·
+[04 — quarta](correcoes-04.md) ·
+[05 — quinta](correcoes-05.md) ·
+[06 — sexta](correcoes-06.md) ·
+[07 — build e entrega](correcoes-07.md)
 
-## Evidências e limites
+A [reconciliação de 11/09](reconciliacao-2026-09-11.md) compara os registros
+locais com os repositórios e explica quais correções prevaleceram.
+O código ativo está em
+[NEOpisa/neovanguard-os-dev](https://github.com/NEOpisa/neovanguard-os-dev);
+os destinos antigos `neovos` e `neovosdev` foram aposentados.
 
-- **Reprodução isolada:** NVG-01/02, NVG-05 e NVG-08. Foram usados Bash, campos fictícios, comandos simulados e diretórios temporários. Nenhuma instalação, formatação ou alteração real de firewall foi executada.
-- **Funções reais em memória:** NVG-09, usando dados e lista de palavras sintéticos. Nenhuma chave pessoal foi acessada.
-- **Análise de fluxo:** NVG-03. A chamada destrutiva é explícita; não foi executada em disco.
-- **Análise de código e semântica documentada:** NVG-04, NVG-06 e NVG-07. Os documentos identificam as consequências inferidas. Não houve boot em VM nem captura de tráfego.
-- **Verificação existente:** `python3 scripts/test-build-deps.py` passou, 1 teste.
-- **Suíte Rust:** `cargo test --locked --offline --workspace` completou os 59 testes do instalador sem falhas. No módulo seguinte, 55 testes registraram sucesso, mas `rede::testes::ida_e_volta_num_relay_local` permaneceu em execução por mais de 60 segundos. A execução foi interrompida; **não há resultado de aprovação da suíte completa**. Essa demora não foi classificada como erro da distro, pois sua causa não foi determinada.
+## Como os problemas foram verificados
 
-Revisão de 11/09/2026:
+A primeira análise usou comandos simulados, diretórios temporários e
+funções reais com dados sintéticos. NVG-03 foi confirmado pela análise
+do fluxo destrutivo; não houve formatação de disco. NVG-04, NVG-06 e
+NVG-07 tiveram análise de código e da semântica documentada, sem boot
+em VM ou captura de tráfego naquela etapa.
 
-- **Tráfego real em namespaces descartáveis:** NVG-10 e NVG-11, com a interface do túnel simulada por uma `dummy` e o mecanismo de `scripts/test-nft-network.py`. Nenhuma regra foi carregada no firewall da máquina.
-- **Comportamento medido do `cryptsetup`:** NVG-12, numa imagem de arquivo de 32 MB, sem root e sem disco real.
-- **Suíte completa:** o `./check` rodou 183 testes do workspace, inclusive `ida_e_volta_num_relay_local`, e terminou com `build-iso --check` aprovado.
-- **CI anterior:** a `main` do `neovanguard-os-dev` estava vermelha desde os PRs de rede, só no passo do `check-network-policies.py`; a [quinta rodada](correcoes-05.md) corrige a causa. O resultado remoto da publicação é registrado no PR correspondente.
-- **Olhados e sem defeito:** `tor.nft` e `killswitch-tor.nft` depois do PR #1; passagem da senha do disco e da conta pela entrada padrão; compatibilidade das partes `nvgs1` geradas pelo código antigo (200 casos).
+A revisão de 11/09 acrescentou tráfego real em namespaces descartáveis
+para NVG-10/11 e uma imagem de arquivo de 32 MB para testar o
+`cryptsetup` no NVG-12. Não foram usados discos, chaves pessoais ou
+regras de firewall do host.
 
-O escopo foi a árvore-fonte do instalador, os comandos e regras de rede relacionados aos achados e a recuperação Shamir, com leitura dos pontos de integração. Não houve auditoria exaustiva de todos os aplicativos, dependências, pacotes binários e imagens. Os arquivos gerados não afirmam que estes sejam todos os erros existentes.
+Na primeira tentativa, a suíte Rust foi interrompida enquanto aguardava
+o relay local; não houve aprovação completa. Na revisão posterior,
+`./check` concluiu os 183 testes do workspace e `build-iso --check`
+passou. São resultados daquela revisão, não da árvore atual.
 
-As referências locais apontam para arquivos e linhas da árvore analisada. As referências externas, presentes nas cadeias 03, 05 e 06, documentam a semântica usada na interpretação.
+Esta auditoria não incluiu boot real nem revisão integral dos aplicativos
+e dependências. As verificações ainda necessárias estão na
+[matriz de ISO, VM e hardware](../2026-09-16/pendencias-iso-vm-hardware.md).

@@ -1,18 +1,35 @@
-# Neovanguard — walkthrough dos erros por causa e efeito
+# Auditoria de 16/09/2026 — NVG-13 a NVG-32
 
-Análise concluída em **16/09/2026**, sobre a árvore da versão **1.2.1 em preparação**, commit `619d7697bf9ff0067a0d314c6456a5183f7a733b` (merge do PR #7). A auditoria começou em 15/09, com a árvore limpa. Nenhum fonte de produção foi alterado: esta pasta contém somente relatórios, provas e registros da revisão.
+Revisão da versão **1.2.1 em preparação**, na base
+`619d7697bf9ff0067a0d314c6456a5183f7a733b`. O trabalho começou em 15/09
+e confirmou 20 problemas novos, além de conferir as correções da auditoria
+anterior.
 
-A análise confirmou **20 novos erros, NVG-13 a NVG-32**. Cada relatório acompanha a entrada ou ação que expõe o problema, a origem do defeito, sua propagação e o efeito observado ou esperado. As provas usam funções reais, CLIs, cópias temporárias, respostas externas simuladas e tráfego isolado; não foram usados discos, contas, chaves, pagamentos, firmware ou firewall reais.
+[Visão geral](../README.md) ·
+[Correções de 18/09](correcoes-2026-09-18.md) ·
+[Evidências](evidencias/README.md) ·
+[Validação em ISO/VM](pendencias-iso-vm-hardware.md)
 
-## Estado das correções (atualizado em 18/09/2026)
+## Situação em 18/09
 
-**Os 12 erros anteriores, NVG-01 a NVG-12, permanecem corrigidos dentro do escopo verificável desta revisão.** A conferência individual e as ressalvas sobre outras correções anunciadas estão em [correções verificadas](correcoes-verificadas.md).
+**NVG-29, NVG-30 e NVG-17 foram corrigidos, testados nas respectivas
+branches e integrados à main.** Os outros 17 achados continuam pendentes
+neste acompanhamento. Commits, PRs, resultados e limites estão no
+[registro das correções](correcoes-2026-09-18.md).
 
-**Três dos 20 achados foram corrigidos, testados nas respectivas branches e integrados à main: NVG-29, NVG-30 e NVG-17.** O [registro de 18/09](correcoes-2026-09-18.md) reúne os commits, PRs e resultados. Os outros 17 continuam pendentes neste acompanhamento. A validação conjunta após os merges e os testes de ISO/VM ainda não foram realizados; consulte as [pendências de validação](pendencias-iso-vm-hardware.md).
+Os 12 problemas anteriores, NVG-01 a NVG-12, permanecem corrigidos no
+escopo reavaliado. A [conferência individual](correcoes-verificadas.md)
+distingue as correções verificadas das funcionalidades que ainda precisam
+de teste no sistema instalado.
 
-Prioridade de tratamento: aplicação privilegiada do cofre (NVG-17), autenticidade e valor em pagamentos (NVG-29/30), seleção destrutiva e restauração no instalador (NVG-13/14/15/18), boot e isolamento solicitado (NVG-16/23/25). A gravidade considera a consequência no cenário descrito, não uma pontuação CVSS nem a frequência de ocorrência.
+Não foi construída uma ISO. A validação conjunta após os três merges e
+os cenários da matriz de ISO/VM continuam pendentes.
 
-## Ordem de leitura e lista de erros
+## Relatórios
+
+Os títulos descrevem o defeito encontrado na base original, inclusive nos
+casos já corrigidos. “Alto”, “médio” e “baixo” indicam o impacto no cenário
+do relatório, não uma pontuação CVSS.
 
 | Cadeia | Erro | O que dá errado | Impacto | Estado |
 |---|---|---|---|---|
@@ -37,34 +54,44 @@ Prioridade de tratamento: aplicação privilegiada do cofre (NVG-17), autenticid
 | [19 — Tags descartadas](NVG-31-assinatura-descarta-tags.md) | NVG-31 | A CLI ignora `--tag` e envia evento sem referências | Médio | **Pendente** |
 | [20 — Verificador de pacotes](NVG-32-verificador-pacotes-falso-alarme.md) | NVG-32 | Um conflito do host produz diagnóstico de pacote inexistente | Baixo | **Pendente** |
 
-## Mapa dos pontos de toque
 
-```mermaid
-flowchart TD
-    A["Instalação e armazenamento"] --> B["01–03: destino, partições e conta"]
-    A --> C["04: boot do Cold Vault"]
-    A --> D["05–07: cofre, restauração e envelope"]
-    E["Identidade e comunicação"] --> F["08–10: DMs, elevação e sincronização"]
-    E --> G["17–19: eventos, pagamentos e tags"]
-    H["Boot e experiência do sistema"] --> I["11–14: Secure Boot, matriz, wizard e perfil"]
-    J["Rede, build e validação"] --> K["15–16: IPv6 e GPU"]
-    J --> L["20: referência de pacotes"]
-    C -. "validação em boot real" .-> H
-    D -. "dados restaurados alimentam" .-> E
-    K -. "pode bloquear a validação de" .-> J
-```
+Entre os achados ainda pendentes, os de seleção de disco e restauração
+(NVG-13/14/15/18) e os de boot e isolamento (NVG-16/23/25) merecem atenção
+prioritária pelas consequências descritas nos relatórios.
 
-As cadeias 01 a 07 atravessam instalação, boot, armazenamento e cofre. As cadeias 08 a 10 e 17 a 19 tratam identidade, comunicação Nostr e pagamentos. As cadeias 11 a 14 cobrem inicialização e experiência do usuário; 15, 16 e 20 cobrem rede e mecanismos de build ou verificação. As setas pontilhadas indicam relação entre áreas, não dependência obrigatória entre os defeitos.
+## Resultados da auditoria original
 
-## Evidências e limites
+Estes números pertencem à execução de 15–16/09, antes das três correções:
 
-- **Rust:** 182 testes existentes passaram e 1 falhou, em 183 execuções distintas. A falha dependente da GPU do host é o NVG-28. `fmt` e Clippy do workspace passaram.
-- **Python e rede:** 103 testes existentes passaram, incluindo 10 testes de tráfego em namespaces descartáveis. Quatro políticas nft e suas sondas de estado passaram.
-- **Qt e systemd:** 14 resultados Qt foram aprovados em modo offscreen. O teste adicional da política systemd passou para IPC, sockets IP, home somente leitura e NIP-46.
-- **Sintaxe:** 84 arquivos Bash/PKGBUILD, 37 Python e 10 JSON próprios passaram nas verificações aplicáveis.
-- **Provas dos novos erros:** seis testes Rust adicionais e provas com funções, scripts e CLIs reais reproduziram os achados. Nessas provas, um teste aprovado significa que o defeito foi observado, não que foi corrigido.
-- **ISO:** os perfis e verificações estáticas foram exercitados, mas `./build-iso --check` não teve aprovação integral e nenhuma ISO foi construída ou certificada.
+| Conjunto | Resultado |
+|---|---|
+| Rust | 182 testes aprovados e 1 reprovado; falha dependente de GPU, NVG-28 |
+| Python | 103 testes aprovados, incluindo 10 de tráfego em namespaces |
+| Políticas de rede | Quatro políticas nft e suas sondas aprovadas |
+| Qt | 14 resultados aprovados em modo offscreen |
+| Agente systemd | Política de IPC, sockets, acesso ao home e NIP-46 aprovada |
+| Sintaxe | 84 arquivos Bash/PKGBUILD, 37 Python e 10 JSON sem falhas |
+| Build | `./build-iso --check` sem aprovação integral; nenhuma ISO construída |
 
-Os comandos, logs e instruções de reprodução estão no [registro de evidências](evidencias/README.md). A matriz de [pendências de ISO, VM e hardware](pendencias-iso-vm-hardware.md) define os cenários que continuam necessários.
+As provas adicionais reproduziram os novos defeitos. Nelas, um teste
+aprovado significa que o problema foi observado, não que foi corrigido.
+Os [comandos e logs](evidencias/README.md) detalham as condições de cada
+execução. Os testes posteriores estão separados no
+[registro de 18/09](correcoes-2026-09-18.md).
 
-O escopo incluiu instalação, disco, contas, boot, cofre, configurações, identidade Nostr, agente e IPC, utilitários `neo-*`, políticas de rede, assistente inicial, build, empacotamento, workflows e integração visual. Não houve auditoria linha a linha de dependências vendorizadas, Arch/AUR ou kernel. Este trabalho documenta erros confirmados e validações realizadas; **não certifica a ISO, a segurança integral do sistema nem a ausência de outros problemas**.
+## Escopo e limites
+
+A revisão cobriu instalador, armazenamento, boot, cofre, Nostr, agente e
+IPC, comandos `neo-*`, políticas de rede, primeiro boot, build,
+empacotamento e integração visual.
+
+As reproduções usaram funções e comandos reais, com isolamento ou
+simulação nas operações sensíveis. Os testes originais não tocaram em
+discos, contas, chaves pessoais, firmware ou firewall do host, nem
+realizaram pagamentos. O regtest CLN com fundos fictícios foi executado
+depois, na correção da NVG-30.
+
+Dependências externas, kernel e pacotes Arch/AUR não tiveram revisão
+integral. Os resultados não certificam uma ISO; os testes necessários
+no sistema instalado estão na
+[matriz de validação](pendencias-iso-vm-hardware.md).

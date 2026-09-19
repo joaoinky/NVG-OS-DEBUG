@@ -1,13 +1,26 @@
-# Evidências e reprodução
+# Testes e evidências — auditoria de 16/09
 
-Os logs desta pasta preservam a auditoria de 15–16/09. NVG-29, NVG-30 e NVG-17
-foram corrigidos posteriormente; os testes e PRs estão no
-[registro de 18/09](../correcoes-2026-09-18.md). As provas antigas demonstram
-os defeitos na base original e não devem ser interpretadas como falhas atuais.
+Esta pasta reúne os logs e as provas que sustentam os relatórios da auditoria.
+A base testada foi `619d7697bf9ff0067a0d314c6456a5183f7a733b`, em 15–16/09/2026.
 
-Base dos testes: `619d7697bf9ff0067a0d314c6456a5183f7a733b`. Os registros foram coletados em 15–16/09/2026. Ferramentas relevantes: Rust/Cargo 1.98.1, Python 3.14 e Qt 6.11.1 no host de auditoria. Essas versões não descrevem necessariamente o conteúdo de uma futura ISO.
+[Índice da auditoria](../README.md) ·
+[Correções posteriores](../correcoes-2026-09-18.md) ·
+[Pendências de ISO/VM](../pendencias-iso-vm-hardware.md)
 
-Rust, Cargo, jq e bibliotecas necessárias que faltavam foram extraídos para uma área temporária, sem instalar pacotes no sistema. Cache Cargo e saídas de compilação também ficaram em `/tmp/nvg-audit-2026-09-15/`. Os testes originais foram executados contra os fontes do repositório; os testes Rust novos foram acrescentados somente a uma **cópia temporária**.
+NVG-29, NVG-30 e NVG-17 foram corrigidos depois dessa coleta. Os logs antigos
+foram mantidos para documentar a reprodução original; os resultados das
+correções estão no registro de 18/09, não nestes arquivos.
+
+## Ambiente de execução
+
+Foram usados Rust/Cargo 1.98.1, Python 3.14 e Qt 6.11.1. Ferramentas ausentes,
+incluindo Rust, Cargo e jq, foram extraídas para uma área temporária, sem
+instalar pacotes no host. Cache e saídas de compilação ficaram em
+`/tmp/nvg-audit-2026-09-15/`.
+
+Os testes existentes rodaram sobre os fontes do projeto. As seis provas Rust
+adicionais foram inseridas apenas em uma cópia temporária. As versões das
+ferramentas acima descrevem o ambiente da auditoria, não o conteúdo da ISO.
 
 ## Suítes existentes
 
@@ -46,19 +59,30 @@ QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software \
 
 Para verificar sintaxe, foram percorridos arquivos de `git ls-files`, excluindo vendor, saídas geradas e powerlevel10k; Bash foi analisado com `bash -n`, Python com `compile()` sem executar e JSON com `json.loads()`. Isso não é análise semântica nem abrange dependências externas.
 
-### Como interpretar as tentativas que não passaram
+### Falhas e ajustes do ambiente
 
 - A tentativa Rust inicial dentro do sandbox não conseguiu exercitar adequadamente sockets e ficou aguardando o teste de relay. A execução com permissões adequadas concluiu esse teste; o processo bloqueado foi encerrado ao final. O bloqueio ambiental não foi contado como falha da distro.
 - A ausência inicial de jq fez falhar a suíte de modos; após disponibilizá-lo, os 18 testes passaram.
 - `test-frost.py` inicialmente não encontrou o wallpaper instalado. `python3 branding/install-wallpapers.py` materializou o recurso ignorado pelo Git e os 12 testes passaram. Não foi classificado como bug.
-- `test-agent-service.py` primeiro tentou executar um binário em `/tmp`, ocultado por `PrivateTmp=yes`. A prova [reproduzir-politica-agente.py](reproduzir-politica-agente.py) executa o mesmo teste e a mesma política, copiando somente o binário para um diretório temporário dentro do checkout. Esse diretório é removido ao sair. IPC, sockets IP, home somente leitura e integração NIP-46 passaram. A primeira revisão automática de permissão expirou; a repetição permitida foi aprovada.
+- `test-agent-service.py` tentou executar um binário em `/tmp`, ocultado por `PrivateTmp=yes`. A prova [reproduzir-politica-agente.py](reproduzir-politica-agente.py) usa o mesmo teste e a mesma política, mas coloca o binário em um diretório temporário dentro do checkout, removido ao sair. IPC, sockets IP, home somente leitura e NIP-46 passaram.
 - `build-iso --check` compôs os dois perfis e verificou, entre outros, sintaxe, rótulos/colisões, linhas de boot, chamadas do instalador, atalhos, QML e versão. Não obteve aprovação integral: encontrou o **falso diagnóstico NVG-32**, restrições de Netlink/systemd no sandbox e recursos do tema ainda não materializados pelo gerador completo. Pacotes/índice local ausentes fizeram verificações de artefatos serem explicitamente omitidas. Tráfego nft e política do agente foram validados separadamente, com permissões apropriadas. Não se chamou esse resultado de build de ISO nem de `./check` verde.
 
-## Provas dos problemas novos
+## Reprodução dos defeitos
 
-**Nestas provas, uma asserção aprovada significa que o defeito foi reproduzido.** Elas não corrigem o produto e devem falhar ou mudar de expectativa quando a correção correspondente for implementada.
+**Aqui, uma asserção aprovada significa que o defeito foi reproduzido.**
+Para comparar o antes e o depois, use o commit auditado e o commit da
+correção. É esperado que as provas antigas falhem ou precisem de outra
+expectativa no código corrigido.
 
-Executar a partir da raiz do repositório, como usuário comum. Pré-requisitos conforme a prova: Python, Bash, jq, tar/zstd, Rust/Cargo, iproute2, nftables, user namespaces e, para a política do agente, uma sessão systemd de usuário. Algumas restrições de sandbox impedem sockets/Netlink/auditoria do useradd; os logs informam o ambiente em que foram executadas.
+Execute os exemplos abaixo na raiz do **repositório de código-fonte
+`neovanguard-os-dev`**, como usuário comum, na revisão indicada. O
+`NVG-OS-DEBUG` guarda uma cópia dos registros, mas não contém os fontes
+necessários para rodar essas provas.
+
+Conforme o teste, são necessários Python, Bash, jq, tar/zstd, Rust/Cargo,
+iproute2, nftables e user namespaces. A prova do agente também exige uma
+sessão systemd de usuário. Sockets e Netlink precisam estar disponíveis;
+os logs registram as limitações encontradas no sandbox.
 
 | Relatórios | Prova | Saída registrada |
 |---|---|---|
@@ -94,8 +118,14 @@ A prova de tags usa `rust/target/debug/nvg-nostr` por padrão. Para outro diret�
 
 O useradd da prova só opera com `--prefix` em uma árvore fictícia criada pelo script. O teste de rede recusa executar se o namespace não for diferente do inicial e não começar exclusivamente com loopback; as regras são carregadas somente nesse namespace. Não executar manualmente comandos extraídos desses scripts fora de suas guardas.
 
-## Integridade e limites
+## Uso seguro dos registros
 
-Cada relatório aponta para os fontes originais e separa o que foi observado do efeito final ainda inferido. Mocks são usados em ações que poderiam atingir discos, rádios, firmware ou fundos; o comportamento interno relevante do script é preservado. Não foram usadas seeds, credenciais, contas ou faturas pessoais.
+As ações que poderiam atingir discos, rádios, firmware ou fundos foram
+simuladas nas provas originais. Nenhuma seed, credencial, conta ou fatura
+pessoal foi usada. Leia as guardas de cada script antes de executá-lo e
+não transporte comandos destrutivos para fora do ambiente de teste.
 
-O [inventário](inventario.json) lista os vinte relatórios. Os caminhos temporários nos logs documentam a execução; não são dependências fixas dos arquivos de prova. O [índice principal](../README.md) e a [matriz de validação](../pendencias-iso-vm-hardware.md) delimitam as conclusões.
+O [inventário](inventario.json) lista os vinte relatórios. Caminhos temporários
+nos logs identificam aquela execução; não precisam existir na máquina de quem
+reproduz o teste. Consulte a [matriz de validação](../pendencias-iso-vm-hardware.md)
+para os cenários que ainda exigem ISO, VM ou hardware.
