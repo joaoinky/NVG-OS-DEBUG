@@ -23,7 +23,11 @@ Este não é o repositório do código-fonte do sistema. É um histórico técni
 | Pasta | Conteúdo | Situação registrada |
 |---|---|---|
 | [2026-08-09](2026-08-09/README.md) | NVG-01 a NVG-12, registros das rodadas de correção e reconciliação com o repositório de desenvolvimento | 12 erros corrigidos no escopo verificado |
-| [2026-09-16](2026-09-16/README.md) | Conferência das correções anteriores e 20 novos problemas, NVG-13 a NVG-32, com provas e matriz de validação | 20 erros confirmados, sem correção verificada nesta auditoria |
+| [2026-09-16](2026-09-16/README.md) | Conferência das correções anteriores e 20 novos problemas, NVG-13 a NVG-32, com provas e matriz de validação | 3 corrigidos e integrados; 17 pendentes |
+
+Atualização de 18/09/2026: NVG-29, NVG-30 e NVG-17 foram corrigidos e integrados
+à main do código-fonte. Veja os [commits, PRs e testes da rodada](2026-09-16/correcoes-2026-09-18.md).
+Validação conjunta após os merges e em ISO/VM permanece pendente.
 
 Comece pelo README da auditoria desejada. Ele contém a ordem de leitura, o estado de cada achado, um mapa das áreas afetadas e os limites da validação. Na auditoria de 16/09, os comandos e logs ficam reunidos em [evidências](2026-09-16/evidencias/README.md).
 

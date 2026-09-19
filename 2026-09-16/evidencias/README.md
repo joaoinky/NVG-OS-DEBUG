@@ -1,5 +1,10 @@
 # Evidências e reprodução
 
+Os logs desta pasta preservam a auditoria de 15–16/09. NVG-29, NVG-30 e NVG-17
+foram corrigidos posteriormente; os testes e PRs estão no
+[registro de 18/09](../correcoes-2026-09-18.md). As provas antigas demonstram
+os defeitos na base original e não devem ser interpretadas como falhas atuais.
+
 Base dos testes: `619d7697bf9ff0067a0d314c6456a5183f7a733b`. Os registros foram coletados em 15–16/09/2026. Ferramentas relevantes: Rust/Cargo 1.98.1, Python 3.14 e Qt 6.11.1 no host de auditoria. Essas versões não descrevem necessariamente o conteúdo de uma futura ISO.
 
 Rust, Cargo, jq e bibliotecas necessárias que faltavam foram extraídos para uma área temporária, sem instalar pacotes no sistema. Cache Cargo e saídas de compilação também ficaram em `/tmp/nvg-audit-2026-09-15/`. Os testes originais foram executados contra os fontes do repositório; os testes Rust novos foram acrescentados somente a uma **cópia temporária**.

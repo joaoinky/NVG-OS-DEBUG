@@ -6,6 +6,12 @@ Os [20 problemas confirmados](README.md) não são hipóteses pendentes: já pos
 
 ## Matriz mínima de validação
 
+Atualização de 18/09: NVG-29, NVG-30 e NVG-17 foram corrigidos e integrados.
+O [registro da rodada](correcoes-2026-09-18.md) documenta as regressões,
+o pagamento CLN em regtest e a execução do escritor do cofre com UID 0 em
+namespace. Esses resultados reduzem as lacunas abaixo, mas não substituem
+a validação conjunta da main, a ISO nem testes com usuários distintos.
+
 | Área | Por que o código/teste atual não basta | Procedimento necessário e critério de aprovação |
 |---|---|---|
 | Build limpo e pacotes | Não foram reconstruídos AUR, pacotes próprios, índice ou payload. Teste de GPU e falso diagnóstico de pacotes também afetam o check. | Em ambiente Arch limpo, construir todos os pacotes obrigatórios e ambas as imagens atuais (MBN Live/Install). Conferir `VERSION`, `.PKGINFO`, dependências, assinaturas, conteúdo, índice e checksums; nenhuma falha obrigatória pode ser ocultada. |
@@ -22,7 +28,7 @@ Os [20 problemas confirmados](README.md) não são hipóteses pendentes: já pos
 | Cofre e restauração | NVG-17/18/19 cobrem defeitos concretos; não esgotam corridas, limites e limpeza de segredos. | Depois das correções, testar pacote válido/malformado, expansão excessiva limitada, symlinks e troca concorrente no destino, permissões/ownership sob root, interrupção, espaço cheio e restauração pela instalação. Nada pode sair da área autorizada; falhas devem preservar estado recuperável. |
 | Agente e clientes Nostr | Teste local NIP-46 e sandbox passou, mas clientes gráficos/reais não foram exercitados. | Identidade descartável: prompt real, recusa/timeout, lock/idle, suspensão, desconexão, cancelamento e concorrência. Testar NIP-04/NIP-44/NIP-46 com clientes compatíveis e eventos inválidos; não usar identidade pessoal. |
 | Relay, sincronização e limpeza | NVG-20/22/29/31 foram testados por chamadas/controladores simulados; falta relay distribuído real. | Dois relays isolados: várias notas offline, falhas parciais, duplicados, perfis forjados e exclusão autorizada. Conferir persistência em `/run`, vida útil após restart/reboot e confirmação de publicação por destino. |
-| Lightning/Bitcoin/Liquid | O pagador do NVG-30 foi simulado; não houve nó nem liquidação. | Regtest/testnet e valores fictícios: faturamento LNURL correto/divergente, CLN/LND, erro de nó, callback inválido, indisponibilidade e limites de taxas. Conferir destino autenticado, valor em msat e resultado antes de anunciar pagamento. Não validar com dinheiro real. |
+| Lightning/Bitcoin/Liquid | Em 18/09, CLN teve liquidação real em regtest e recusou três faturas inválidas; HTTP LNURL e LND tiveram cobertura simulada. ISO e LND real ainda não foram validados. | Repetir no sistema instalado com fundos fictícios, incluir LND real, erro de nó, callback inválido, indisponibilidade e limites de taxas. Conferir destino autenticado, valor em msat e resultado antes de anunciar pagamento. Não validar com dinheiro real. |
 | Mesh, flash e mídia removível | NVG-21 identifica perda de argumentos; transportes e gravação real não foram executados. | Após correção, validar relançamento normal/sudo e destino efetivo; gravar apenas mídia descartável e verificar conteúdo. Bluetooth PAN/Wi-Fi Direct entre duas máquinas, descoberta e acesso ao relay na interface anunciada. |
 | Plasma/Frost/SDDM | QML offscreen testou lógica, não PAM, compositor, blur, renderização e ergonomia completas. | Primeiro login, favoritos/recentes, atalhos Meta/Meta+A, dock, troca sucessiva de cores, bloqueio, mídia, teclado e logout. Testar 800×600 a 4K/ultrawide, escala fracionária, múltiplos monitores e hotplug. Registrar capturas e erros. |
 | GPU, energia e acessibilidade | Detectores/helpers tiveram testes sintéticos; efeitos físicos não foram medidos. | Intel/AMD/NVIDIA disponíveis, Wayland, software rendering, suspender/retomar, áudio, Wi-Fi, Bluetooth e brilho. Orca/leitor de tela, foco, teclado virtual e contrastes em sessão real. |

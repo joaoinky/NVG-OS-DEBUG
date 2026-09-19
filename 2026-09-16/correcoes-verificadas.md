@@ -1,5 +1,8 @@
 # Conferência dos problemas anteriormente marcados como resolvidos
 
+Este documento preserva a conferência de 16/09. As correções posteriores de
+NVG-29, NVG-30 e NVG-17 estão no [registro de 18/09](correcoes-2026-09-18.md).
+
 Base auditada: `619d7697bf9ff0067a0d314c6456a5183f7a733b`. Trabalho iniciado em 15/09 e concluído em 16/09/2026. “Sim” abaixo significa que a correção do **defeito originalmente descrito** está presente e foi sustentada pela leitura e pelas verificações indicadas. Não significa que todos os caminhos daquela funcionalidade estejam corretos, nem que a ISO tenha sido testada.
 
 ## Lista simples — os 12 erros numerados

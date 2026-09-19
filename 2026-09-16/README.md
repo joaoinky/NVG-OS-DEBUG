@@ -4,11 +4,11 @@ Análise concluída em **16/09/2026**, sobre a árvore da versão **1.2.1 em pre
 
 A análise confirmou **20 novos erros, NVG-13 a NVG-32**. Cada relatório acompanha a entrada ou ação que expõe o problema, a origem do defeito, sua propagação e o efeito observado ou esperado. As provas usam funções reais, CLIs, cópias temporárias, respostas externas simuladas e tráfego isolado; não foram usados discos, contas, chaves, pagamentos, firmware ou firewall reais.
 
-## Estado das correções (atualizado em 16/09/2026)
+## Estado das correções (atualizado em 18/09/2026)
 
 **Os 12 erros anteriores, NVG-01 a NVG-12, permanecem corrigidos dentro do escopo verificável desta revisão.** A conferência individual e as ressalvas sobre outras correções anunciadas estão em [correções verificadas](correcoes-verificadas.md).
 
-**Os 20 erros novos estão confirmados e ainda não possuem correção verificada nesta auditoria.** Alterar o código-fonte, por si só, não comprova o comportamento de uma ISO. Os testes que ainda dependem de build, VM, instalação ou hardware estão descritos em [pendências de validação](pendencias-iso-vm-hardware.md).
+**Três dos 20 achados foram corrigidos, testados nas respectivas branches e integrados à main: NVG-29, NVG-30 e NVG-17.** O [registro de 18/09](correcoes-2026-09-18.md) reúne os commits, PRs e resultados. Os outros 17 continuam pendentes neste acompanhamento. A validação conjunta após os merges e os testes de ISO/VM ainda não foram realizados; consulte as [pendências de validação](pendencias-iso-vm-hardware.md).
 
 Prioridade de tratamento: aplicação privilegiada do cofre (NVG-17), autenticidade e valor em pagamentos (NVG-29/30), seleção destrutiva e restauração no instalador (NVG-13/14/15/18), boot e isolamento solicitado (NVG-16/23/25). A gravidade considera a consequência no cenário descrito, não uma pontuação CVSS nem a frequência de ocorrência.
 
@@ -20,7 +20,7 @@ Prioridade de tratamento: aplicação privilegiada do cofre (NVG-17), autenticid
 | [02 — Partições sobrepostas](NVG-14-raiz-esp-home-sobrepostas.md) | NVG-14 | A mesma partição pode ser raiz, ESP e home | Alto | **Pendente** |
 | [03 — Usuário reservado](NVG-15-usuario-reservado.md) | NVG-15 | `root` é aceito como nova conta e a instalação falha depois da formatação | Alto | **Pendente** |
 | [04 — Boot do Cold Vault](NVG-16-boot-vault-perde-parametros.md) | NVG-16 | A entrada perde parâmetros necessários para Btrfs e LUKS | Alto | **Pendente** |
-| [05 — Links no cofre](NVG-17-cofre-links-no-destino.md) | NVG-17 | Aplicação privilegiada segue links no home e no temporário | Alto | **Pendente** |
+| [05 — Links no cofre](NVG-17-cofre-links-no-destino.md) | NVG-17 | Aplicação privilegiada segue links no home e no temporário | Alto | Corrigido — [PR #8](https://github.com/NEOpisa/neovanguard-os-dev/pull/8) |
 | [06 — Restauração sem filtros](NVG-18-restauracao-instalador-sem-filtros.md) | NVG-18 | O instalador ignora a lista de arquivos permitidos | Alto | **Pendente** |
 | [07 — Envelope não autenticado](NVG-19-envelope-causa-panic.md) | NVG-19 | Um tamanho não autenticado pode abortar o processo | Médio | **Pendente** |
 | [08 — Limpeza de DMs](NVG-20-limpeza-dms-nao-publica.md) | NVG-20 | A interface anuncia envio sem publicar pedidos de exclusão | Médio | **Pendente** |
@@ -32,8 +32,8 @@ Prioridade de tratamento: aplicação privilegiada do cofre (NVG-17), autenticid
 | [14 — Perfil divergente](NVG-26-perfil-gravado-nao-lido.md) | NVG-26 | O perfil é gravado em arquivo e chave diferentes dos lidos | Médio | **Pendente** |
 | [15 — VPN e IPv6](NVG-27-vpn-ipv6-sem-ndp.md) | NVG-27 | O kill-switch impede o endpoint quando o cache NDP esvazia | Médio | **Pendente** |
 | [16 — Teste dependente de GPU](NVG-28-teste-depende-da-gpu.md) | NVG-28 | O teste do manifesto falha em hosts NVIDIA e bloqueia o check | Médio | **Pendente** |
-| [17 — Evento Nostr forjado](NVG-29-rpc-aceita-evento-forjado.md) | NVG-29 | O cliente aceita perfil com hash e assinatura inválidos | Alto | **Pendente** |
-| [18 — Valor do zap](NVG-30-zap-nao-confere-valor.md) | NVG-30 | O valor da fatura não é comparado aos sats solicitados | Alto | **Pendente** |
+| [17 — Evento Nostr forjado](NVG-29-rpc-aceita-evento-forjado.md) | NVG-29 | O cliente aceita perfil com hash e assinatura inválidos | Alto | Corrigido — [PR #9](https://github.com/NEOpisa/neovanguard-os-dev/pull/9) |
+| [18 — Valor do zap](NVG-30-zap-nao-confere-valor.md) | NVG-30 | O valor da fatura não é comparado aos sats solicitados | Alto | Corrigido — [PR #10](https://github.com/NEOpisa/neovanguard-os-dev/pull/10) |
 | [19 — Tags descartadas](NVG-31-assinatura-descarta-tags.md) | NVG-31 | A CLI ignora `--tag` e envia evento sem referências | Médio | **Pendente** |
 | [20 — Verificador de pacotes](NVG-32-verificador-pacotes-falso-alarme.md) | NVG-32 | Um conflito do host produz diagnóstico de pacote inexistente | Baixo | **Pendente** |
 
