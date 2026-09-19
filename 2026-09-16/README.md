@@ -6,24 +6,30 @@ e confirmou 20 problemas novos, além de conferir as correções da auditoria
 anterior.
 
 [Visão geral](../README.md) ·
+[Correções de 19/09](correcoes-2026-09-19.md) ·
 [Correções de 18/09](correcoes-2026-09-18.md) ·
 [Evidências](evidencias/README.md) ·
 [Validação em ISO/VM](pendencias-iso-vm-hardware.md)
 
-## Situação em 18/09
+## Situação em 19/09
 
-**NVG-29, NVG-30 e NVG-17 foram corrigidos, testados nas respectivas
-branches e integrados à main.** Os outros 17 achados continuam pendentes
-neste acompanhamento. Commits, PRs, resultados e limites estão no
-[registro das correções](correcoes-2026-09-18.md).
+**NVG-20 e NVG-31 foram corrigidos e testados juntos no PR #31, que continua
+aberto.** NVG-29, NVG-30 e NVG-17 permanecem integrados à `main`. Assim, cinco
+achados possuem correção no código e os outros 15 continuam pendentes neste
+acompanhamento. O [registro de 19/09](correcoes-2026-09-19.md) apresenta o
+comportamento final, os testes e os limites da nova rodada.
+
+NVG-29, NVG-30 e NVG-17 foram corrigidos, testados nas respectivas branches
+e integrados à `main`. Commits, PRs, resultados e limites estão no
+[registro de 18/09](correcoes-2026-09-18.md).
 
 Os 12 problemas anteriores, NVG-01 a NVG-12, permanecem corrigidos no
 escopo reavaliado. A [conferência individual](correcoes-verificadas.md)
 distingue as correções verificadas das funcionalidades que ainda precisam
 de teste no sistema instalado.
 
-Não foi construída uma ISO. A validação conjunta após os três merges e
-os cenários da matriz de ISO/VM continuam pendentes.
+Não foi construída uma ISO. A validação conjunta das correções e os cenários
+da matriz de ISO/VM continuam pendentes.
 
 ## Relatórios
 
@@ -31,8 +37,9 @@ Os títulos descrevem o defeito encontrado na base original, inclusive nos
 casos já corrigidos. “Alto”, “médio” e “baixo” indicam o impacto no cenário
 do relatório, não uma pontuação CVSS.
 
-Os nomes usam ✅ para correções integradas e ❌ para problemas que continuam
-pendentes. A última coluna aponta o estado e, quando disponível, o PR.
+Os nomes usam ✅ para correções implementadas e testadas no código e ❌ para
+problemas que continuam pendentes. A última coluna distingue PR aberto de
+correção já integrada.
 
 | Cadeia | Erro | O que dá errado | Impacto | Estado |
 |---|---|---|---|---|
@@ -43,7 +50,7 @@ pendentes. A última coluna aponta o estado e, quando disponível, o PR.
 | [05 - Links no cofre](✅-17-cofre-links-no-destino.md) | NVG-17 | Aplicação privilegiada segue links no home e no temporário | Alto | Corrigido - [PR #8](https://github.com/NEOpisa/neovanguard-os-dev/pull/8) |
 | [06 - Restauração sem filtros](❌-18-restauracao-instalador-sem-filtros.md) | NVG-18 | O instalador ignora a lista de arquivos permitidos | Alto | **Pendente** |
 | [07 - Envelope não autenticado](❌-19-envelope-causa-panic.md) | NVG-19 | Um tamanho não autenticado pode abortar o processo | Médio | **Pendente** |
-| [08 - Limpeza de DMs](❌-20-limpeza-dms-nao-publica.md) | NVG-20 | A interface anuncia envio sem publicar pedidos de exclusão | Médio | **Pendente** |
+| [08 - Limpeza de DMs](✅-20-limpeza-dms-nao-publica.md) | NVG-20 | A interface anuncia envio sem publicar pedidos de exclusão | Médio | Corrigido no código - [PR #31](https://github.com/NEOpisa/neovanguard-os-dev/pull/31) aberto |
 | [09 - Elevação e argumentos](❌-21-elevacao-perde-argumentos.md) | NVG-21 | Flash e transportes mesh perdem a ação ao executar `sudo` | Médio | **Pendente** |
 | [10 - Sincronização offline](❌-22-sync-ignora-eventos-offline.md) | NVG-22 | Eventos offline antigos deixam de ser publicados | Médio | **Pendente** |
 | [11 - Secure Boot](❌-23-secureboot-sucesso-falso.md) | NVG-23 | O setup anuncia uma cadeia assinada após falha | Alto | **Pendente** |
@@ -54,7 +61,7 @@ pendentes. A última coluna aponta o estado e, quando disponível, o PR.
 | [16 - Teste dependente de GPU](❌-28-teste-depende-da-gpu.md) | NVG-28 | O teste do manifesto falha em hosts NVIDIA e bloqueia o check | Médio | **Pendente** |
 | [17 - Evento Nostr forjado](✅-29-rpc-aceita-evento-forjado.md) | NVG-29 | O cliente aceita perfil com hash e assinatura inválidos | Alto | Corrigido - [PR #9](https://github.com/NEOpisa/neovanguard-os-dev/pull/9) |
 | [18 - Valor do zap](✅-30-zap-nao-confere-valor.md) | NVG-30 | O valor da fatura não é comparado aos sats solicitados | Alto | Corrigido - [PR #10](https://github.com/NEOpisa/neovanguard-os-dev/pull/10) |
-| [19 - Tags descartadas](❌-31-assinatura-descarta-tags.md) | NVG-31 | A CLI ignora `--tag` e envia evento sem referências | Médio | **Pendente** |
+| [19 - Tags descartadas](✅-31-assinatura-descarta-tags.md) | NVG-31 | A CLI ignora `--tag` e envia evento sem referências | Médio | Corrigido no código - [PR #31](https://github.com/NEOpisa/neovanguard-os-dev/pull/31) aberto |
 | [20 - Verificador de pacotes](❌-32-verificador-pacotes-falso-alarme.md) | NVG-32 | Um conflito do host produz diagnóstico de pacote inexistente | Baixo | **Pendente** |
 
 

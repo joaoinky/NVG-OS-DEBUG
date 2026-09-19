@@ -105,8 +105,9 @@ resultados da sessão; não substitui os logs brutos da auditoria original.
 - Testar liquidação com LND real; nesta rodada, LND teve cobertura simulada.
 - Exercitar a aplicação do cofre com sudo e usuários distintos em ISO/VM.
 - Executar a validação conjunta da main após os três merges.
-- Tratar os outros 17 achados da auditoria de 16/09, sem alterar seu estado
-  por associação com estas correções.
+- Naquela rodada, tratar os outros 17 achados da auditoria de 16/09, sem
+  alterar seu estado por associação com estas correções. NVG-20 e NVG-31
+  receberam correção posteriormente, no [registro de 19/09](correcoes-2026-09-19.md).
 
 Não foi construída uma ISO nesta rodada. Merge de código não confirma que
 pacotes ou imagens atualizados já tenham sido distribuídos.

@@ -1,6 +1,6 @@
 # NVG-31 - CLI de assinatura ignora --tag e envia um evento sem referências
 
-**Estado: confirmado; correção não implementada nesta auditoria.** Gravidade: **média** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
+**Estado: corrigido no código em 19/09/2026; PR #31 aberto; validação em ISO pendente.** Gravidade original: **média**. Base da auditoria: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação). A evidência abaixo descreve o comportamento anterior à correção.
 
 ## Onde e como acontece
 
@@ -19,5 +19,25 @@ Nenhum agente real foi destravado e nenhum evento foi assinado com chave pessoal
 ## Direção da correção
 
 Implementar o formato de tags que os chamadores usam, validar/rejeitar argumentos desconhecidos e testar a requisição IPC resultante. Depois testar a integração de exclusão separadamente.
+
+## Correção implementada
+
+O [PR #31](https://github.com/NEOpisa/neovanguard-os-dev/pull/31), commit
+[`1c2d7b4`](https://github.com/NEOpisa/neovanguard-os-dev/commit/1c2d7b4),
+adiciona `--tag NOME=VALOR` repetível a `nvg-nostr agente assinar`. A ordem é
+preservada e somente o primeiro `=` separa nome e valor. Nomes vazios ou com
+espaços e controles, opções desconhecidas, valores ausentes e repetição de
+`--kind` ou `--conteudo` são recusados antes do IPC.
+
+O agente ganhou uma regressão que assina um kind 5 com duas referências `e` e
+uma tag `k`, preserva todas elas e valida a assinatura final. A integração da
+limpeza exercita a CLI real contra um socket Unix temporário, incluindo tags
+repetidas, Unicode, valor vazio e argumentos inválidos.
+
+Os testes específicos e as suítes `nvg-nostr` e `nvg-nostr-agent` passaram,
+excluindo apenas a falha preexistente de GPU registrada no NVG-28. Ainda falta
+validar o binário empacotado e os prompts do agente em uma ISO.
+
+[Registro da correção conjunta](correcoes-2026-09-19.md) · [PR #31](https://github.com/NEOpisa/neovanguard-os-dev/pull/31)
 
 [Índice da auditoria](README.md) · [Como executar as provas](evidencias/README.md) · [Validação em ISO/VM/hardware](pendencias-iso-vm-hardware.md)
