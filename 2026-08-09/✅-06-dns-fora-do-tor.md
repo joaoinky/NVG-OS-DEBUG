@@ -1,4 +1,4 @@
-# Cadeia 06 — Exceção de LAN deixa DNS escapar do Tor
+# Cadeia 06 - Exceção de LAN deixa DNS escapar do Tor
 
 > **Status: RESOLVIDO**: corrigido na branch `fix/regras-nft-excecoes` (PR #1, `NVG-07`), mesclado na `main` do `neovanguard-os-dev`.
 

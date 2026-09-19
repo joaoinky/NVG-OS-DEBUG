@@ -1,4 +1,4 @@
-# NVG-32 — Verificador anuncia pacote inexistente por conflito do host
+# NVG-32 - Verificador anuncia pacote inexistente por conflito do host
 
 **Estado: confirmado; correção não implementada nesta auditoria.** Gravidade: **baixa** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 

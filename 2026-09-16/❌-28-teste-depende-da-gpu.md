@@ -1,4 +1,4 @@
-# NVG-28 — Teste do manifesto falha em hosts NVIDIA e bloqueia o check
+# NVG-28 - Teste do manifesto falha em hosts NVIDIA e bloqueia o check
 
 **Estado: confirmado; correção não implementada nesta auditoria.** Gravidade: **média** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 

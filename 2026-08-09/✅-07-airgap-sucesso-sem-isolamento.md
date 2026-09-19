@@ -1,4 +1,4 @@
-# Cadeia 07 — Operações de isolamento falham, air-gap é anunciado
+# Cadeia 07 - Operações de isolamento falham, air-gap é anunciado
 
 > **Status: RESOLVIDO**: corrigido na branch `fix/04-07-marcadores` (PR #3, `NVG-08`), que chegou à `main` pelo PR #4.
 

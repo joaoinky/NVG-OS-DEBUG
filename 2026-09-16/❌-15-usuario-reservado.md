@@ -1,4 +1,4 @@
-# NVG-15 — O instalador aceita root como nova conta e falha depois da formatação
+# NVG-15 - O instalador aceita root como nova conta e falha depois da formatação
 
 **Estado: confirmado; correção não implementada nesta auditoria.** Gravidade: **alta** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 

@@ -1,4 +1,4 @@
-# NVG-20 — Limpeza de DMs anuncia envio sem publicar pedidos de exclusão
+# NVG-20 - Limpeza de DMs anuncia envio sem publicar pedidos de exclusão
 
 **Estado: confirmado; correção não implementada nesta auditoria.** Gravidade: **média** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 
@@ -14,7 +14,7 @@ O script completo rodou com respostas e assinador simulados, confirmação `APAG
 
 ## Limites da conclusão
 
-Não se testou exclusão em um relay real. A ausência da publicação é suficiente para impedir o fluxo. Há ainda uma falha independente nas tags da CLI, registrada separadamente no [NVG-31](NVG-31-assinatura-descarta-tags.md). Nem publicar corretamente garante que relays externos apaguem cópias.
+Não se testou exclusão em um relay real. A ausência da publicação é suficiente para impedir o fluxo. Há ainda uma falha independente nas tags da CLI, registrada separadamente no [NVG-31](❌-31-assinatura-descarta-tags.md). Nem publicar corretamente garante que relays externos apaguem cópias.
 
 ## Direção da correção
 

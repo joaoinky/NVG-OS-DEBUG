@@ -4,9 +4,9 @@ Data: 09/09/2026. Escopo: os três erros do instalador nas cadeias 01 e 02 e a r
 
 ## Alterações, em ordem de prioridade
 
-1. **NVG-03 — preservação da raiz:** a combinação particionamento manual + raiz mantida + criação de LUKS é recusada na tela e no motor. Um plano inválido termina antes da preparação do ambiente, sem comandos de instalação ou limpeza. A função de particionamento também verifica essa combinação.
-2. **NVG-02 — interpretação de comandos:** o nome completo chega como um argumento literal ao useradd, preservando apóstrofos e aspas. Hostnames aceitam somente os caracteres próprios dos rótulos definidos pela validação. Dados incompatíveis com os registros de conta são recusados antes da execução. Campos vindos de perfis passam pela mesma verificação no motor.
-3. **NVG-01 — senha com apóstrofo:** as senhas são enviadas pela entrada padrão de chpasswd. Não são interpoladas em Bash nem gravadas em nvg-secret.sh. A saída do processo fica oculta e os erros não incluem a senha.
+1. **NVG-03 - preservação da raiz:** a combinação particionamento manual + raiz mantida + criação de LUKS é recusada na tela e no motor. Um plano inválido termina antes da preparação do ambiente, sem comandos de instalação ou limpeza. A função de particionamento também verifica essa combinação.
+2. **NVG-02 - interpretação de comandos:** o nome completo chega como um argumento literal ao useradd, preservando apóstrofos e aspas. Hostnames aceitam somente os caracteres próprios dos rótulos definidos pela validação. Dados incompatíveis com os registros de conta são recusados antes da execução. Campos vindos de perfis passam pela mesma verificação no motor.
+3. **NVG-01 - senha com apóstrofo:** as senhas são enviadas pela entrada padrão de chpasswd. Não são interpoladas em Bash nem gravadas em nvg-secret.sh. A saída do processo fica oculta e os erros não incluem a senha.
 
 As senhas de conta e disco não têm mais tamanho mínimo imposto pelo instalador. A cifra NIP-49 também aceita senhas sem mínimo; a repetição para confirmação permanece. Quebras de linha e NUL continuam incompatíveis com o protocolo de registros enviado ao chpasswd. Os testes de interface incluem entradas vazias; isso não constitui validação de aceitação de senha vazia por LUKS ou PAM no sistema instalado.
 

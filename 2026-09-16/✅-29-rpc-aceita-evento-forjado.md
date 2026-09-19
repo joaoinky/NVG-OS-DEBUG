@@ -1,4 +1,4 @@
-# NVG-29 — Cliente Nostr aceita perfil com hash e assinatura inválidos
+# NVG-29 - Cliente Nostr aceita perfil com hash e assinatura inválidos
 
 **Estado: corrigido e integrado à main em 18/09/2026; validação em ISO/VM pendente.** Gravidade original: **alta** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 
@@ -20,7 +20,7 @@ Não se comprometeu relay nem se realizou pagamento. O cenário exige uma respos
 
 Validar estrutura, hash, assinatura, autor, kind e filtro antes de deduplicar/selecionar eventos. Preferir implementação Nostr já usada e testada pelo projeto. Testar perfis forjados e eventos válidos fora do filtro.
 
-## Correção e regressão — 2026-09-18
+## Correção e regressão - 2026-09-18
 
 O helper só aceita envelopes EVENT/EOSE da inscrição ativa. Antes de deduplicar
 ou ordenar, envia os candidatos ao novo comando `nvg-nostr eventos-verificar`,
@@ -54,6 +54,6 @@ já está documentada no NVG-28. O teste de relay local exigiu sockets liberados
 fora do sandbox. `check-neo-cli.py` passou; `check-neo-refs.py` reproduziu o
 falso alarme de pacote `systemd` descrito no NVG-32. Não foi construída uma ISO.
 
-Implementação: [`1917f0d`](https://github.com/NEOpisa/neovanguard-os-dev/commit/1917f0d) · [PR #9 — integrado](https://github.com/NEOpisa/neovanguard-os-dev/pull/9). Consulte o [registro da rodada](correcoes-2026-09-18.md) para os commits de merge e as pendências.
+Implementação: [`1917f0d`](https://github.com/NEOpisa/neovanguard-os-dev/commit/1917f0d) · [PR #9 - integrado](https://github.com/NEOpisa/neovanguard-os-dev/pull/9). Consulte o [registro da rodada](correcoes-2026-09-18.md) para os commits de merge e as pendências.
 
 [Índice da auditoria](README.md) · [Como executar as provas](evidencias/README.md) · [Validação em ISO/VM/hardware](pendencias-iso-vm-hardware.md)

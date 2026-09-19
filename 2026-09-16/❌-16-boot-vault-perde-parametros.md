@@ -1,4 +1,4 @@
-# NVG-16 — A entrada Cold Vault perde parâmetros necessários para Btrfs e LUKS
+# NVG-16 - A entrada Cold Vault perde parâmetros necessários para Btrfs e LUKS
 
 **Estado: confirmado; correção não implementada nesta auditoria.** Gravidade: **alta** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 

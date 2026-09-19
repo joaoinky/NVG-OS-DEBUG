@@ -1,4 +1,4 @@
-# Cadeia 02 — Raiz marcada como mantida recebe luksFormat
+# Cadeia 02 - Raiz marcada como mantida recebe luksFormat
 
 > **Status: RESOLVIDO**: corrigido no commit `3e0b344` (primeira rodada, `NVG-03`), presente na `main` do `neovanguard-os-dev`. [Comportamento atual e testes](correcoes-01.md).
 

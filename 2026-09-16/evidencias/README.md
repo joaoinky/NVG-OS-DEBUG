@@ -1,4 +1,4 @@
-# Testes e evidências — auditoria de 16/09
+# Testes e evidências - auditoria de 16/09
 
 Esta pasta reúne os logs e as provas que sustentam os relatórios da auditoria.
 A base testada foi `619d7697bf9ff0067a0d314c6456a5183f7a733b`, em 15–16/09/2026.

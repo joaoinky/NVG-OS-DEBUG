@@ -1,4 +1,4 @@
-# Correções de 18/09/2026 — NVG-29, NVG-30 e NVG-17
+# Correções de 18/09/2026 - NVG-29, NVG-30 e NVG-17
 
 As três correções foram implementadas em branches independentes de
 `NEOpisa/neovanguard-os-dev`, a partir de `4d58b74`, e publicadas em pull
@@ -21,7 +21,7 @@ correspondentes à noite de 18/09 no fuso America/Bahia (UTC−3).
 Os resultados abaixo pertencem às respectivas branches; não representam
 uma nova execução conjunta sobre a main após os merges.
 
-## NVG-29 — autenticidade dos eventos Nostr
+## NVG-29 - autenticidade dos eventos Nostr
 
 O helper Python passou a verificar os eventos antes de ordená-los ou remover
 duplicatas. O comando `nvg-nostr eventos-verificar` usa o SDK já adotado pelo
@@ -35,9 +35,9 @@ do teste de GPU já afetado pela NVG-28. Formatação, Clippy e verificação da
 interface dos comandos também passaram. A checagem de referências reproduziu
 o falso alarme de `systemd` documentado na NVG-32.
 
-[Relatório e detalhes da validação](NVG-29-rpc-aceita-evento-forjado.md).
+[Relatório e detalhes da validação](✅-29-rpc-aceita-evento-forjado.md).
 
-## NVG-30 — valor e vínculo da fatura LNURL
+## NVG-30 - valor e vínculo da fatura LNURL
 
 `neo-zap` agora decodifica a fatura no nó antes de pagar. O novo helper
 `neo-lnurl-verify` exige valor exato em millisatoshis, hash dos metadados
@@ -51,9 +51,9 @@ com valor maior, diferença de um millisatoshi ou hash incorreto ficaram sem
 pagamento. A fatura correta de 1000 sats foi liquidada. Só foram usados
 fundos fictícios; a resposta HTTP LNURL permaneceu simulada.
 
-[Relatório, comandos e resultado do regtest](NVG-30-zap-nao-confere-valor.md).
+[Relatório, comandos e resultado do regtest](✅-30-zap-nao-confere-valor.md).
 
-## NVG-17 — aplicação do cofre sem seguir links
+## NVG-17 - aplicação do cofre sem seguir links
 
 A escrita no home passou a usar descritores de diretório, com recusa de
 links nos componentes do caminho. Arquivos e diretórios novos são preparados
@@ -67,7 +67,7 @@ diretório por link foi repetido 20 vezes, com 500 tentativas por execução.
 A biblioteca teve 63 testes aprovados, excluindo apenas o caso de GPU da
 NVG-28. Clippy terminou sem avisos.
 
-[Relatório, comportamento e limites](NVG-17-cofre-links-no-destino.md).
+[Relatório, comportamento e limites](✅-17-cofre-links-no-destino.md).
 
 ## Reprodução dos testes
 

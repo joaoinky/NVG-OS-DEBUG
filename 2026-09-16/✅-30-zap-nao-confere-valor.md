@@ -1,4 +1,4 @@
-# NVG-30 — Zap não compara o valor da fatura com os sats solicitados
+# NVG-30 - Zap não compara o valor da fatura com os sats solicitados
 
 **Estado: corrigido e integrado à main em 18/09/2026; validação em ISO/VM pendente.** Gravidade original: **alta** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 
@@ -20,7 +20,7 @@ O pagador foi substituído por um registrador; nenhum satoshi saiu. O vetor de t
 
 Decodificar/verificar BOLT11 e exigir igualdade exata em millisatoshis, além dos demais vínculos LNURL, antes de chamar o pagador. Rejeitar divergência e resposta inválida. Validar com nó regtest e fundos fictícios.
 
-## Correção — 2026-09-18
+## Correção - 2026-09-18
 
 `neo-zap` agora decodifica a mesma fatura que será enviada ao pagador com
 `lightning-cli decode` ou `lncli decodepayreq`, fixando o backend entre as duas
@@ -91,6 +91,6 @@ liquidou 1000000 msat. Os três casos recusados usaram, respectivamente,
 pelos testes simulados; liquidação real com LND e validação em ISO continuam
 pendentes. Nenhum fundo de mainnet/testnet foi utilizado.
 
-Implementação: [`f9bffa5`](https://github.com/NEOpisa/neovanguard-os-dev/commit/f9bffa5) · [PR #10 — integrado](https://github.com/NEOpisa/neovanguard-os-dev/pull/10). Consulte o [registro da rodada](correcoes-2026-09-18.md) para os commits de merge e as pendências.
+Implementação: [`f9bffa5`](https://github.com/NEOpisa/neovanguard-os-dev/commit/f9bffa5) · [PR #10 - integrado](https://github.com/NEOpisa/neovanguard-os-dev/pull/10). Consulte o [registro da rodada](correcoes-2026-09-18.md) para os commits de merge e as pendências.
 
 [Índice da auditoria](README.md) · [Como executar as provas](evidencias/README.md) · [Validação em ISO/VM/hardware](pendencias-iso-vm-hardware.md)

@@ -1,4 +1,4 @@
-# NVG-17 — Aplicação privilegiada do cofre segue links no home e no temporário
+# NVG-17 - Aplicação privilegiada do cofre segue links no home e no temporário
 
 **Estado: corrigido e integrado à main em 18/09/2026; validação em ISO/VM pendente.** Gravidade original: **alta** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 
@@ -72,6 +72,6 @@ de restauração nem para a validação da origem protegida pelo cofre.
 Semântica das chamadas: [openat e descritores de diretório](https://man7.org/linux/man-pages/man2/open.2.html)
 e [renameat2](https://www.man7.org/linux/man-pages/man2/rename.2.html).
 
-Implementação: [`093d7eb`](https://github.com/NEOpisa/neovanguard-os-dev/commit/093d7eb) · [PR #8 — integrado](https://github.com/NEOpisa/neovanguard-os-dev/pull/8). Consulte o [registro da rodada](correcoes-2026-09-18.md) para os commits de merge e as pendências.
+Implementação: [`093d7eb`](https://github.com/NEOpisa/neovanguard-os-dev/commit/093d7eb) · [PR #8 - integrado](https://github.com/NEOpisa/neovanguard-os-dev/pull/8). Consulte o [registro da rodada](correcoes-2026-09-18.md) para os commits de merge e as pendências.
 
 [Índice da auditoria](README.md) · [Como executar as provas](evidencias/README.md) · [Validação em ISO/VM/hardware](pendencias-iso-vm-hardware.md)

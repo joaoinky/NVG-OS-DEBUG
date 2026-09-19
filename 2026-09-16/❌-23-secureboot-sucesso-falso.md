@@ -1,4 +1,4 @@
-# NVG-23 — Setup de Secure Boot anuncia cadeia assinada após falha
+# NVG-23 - Setup de Secure Boot anuncia cadeia assinada após falha
 
 **Estado: confirmado; correção não implementada nesta auditoria.** Gravidade: **alta** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 

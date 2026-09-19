@@ -1,4 +1,4 @@
-# Cadeia 04 — Firewall muda, painel conserva o modo anterior
+# Cadeia 04 - Firewall muda, painel conserva o modo anterior
 
 > **Status: RESOLVIDO**: corrigido na branch `fix/04-07-marcadores` (PR #3, `NVG-05`), que chegou à `main` pelo PR #4. A correção local da terceira rodada ([correcoes-03](correcoes-03.md)) foi **substituída** por esta, conforme a regra de que prevalece o código do `neovanguard-os-dev`.
 

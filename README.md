@@ -48,13 +48,13 @@ As datas de cada revisão estão nos próprios documentos.
 
 Em 18/09/2026, três correções chegaram à main do código-fonte:
 
-- **NVG-29:** validação dos eventos Nostr antes de aceitar perfis —
+- **NVG-29:** validação dos eventos Nostr antes de aceitar perfis -
   [PR #9](https://github.com/NEOpisa/neovanguard-os-dev/pull/9).
 - **NVG-30:** conferência do valor, dos metadados e da validade da fatura
-  LNURL antes do pagamento —
+  LNURL antes do pagamento -
   [PR #10](https://github.com/NEOpisa/neovanguard-os-dev/pull/10).
 - **NVG-17:** proteção da aplicação do cofre contra links maliciosos no
-  destino — [PR #8](https://github.com/NEOpisa/neovanguard-os-dev/pull/8).
+  destino - [PR #8](https://github.com/NEOpisa/neovanguard-os-dev/pull/8).
 
 Os testes incluem regressões automatizadas, pagamentos CLN em regtest e
 trocas concorrentes de diretórios. O [registro da rodada](2026-09-16/correcoes-2026-09-18.md)

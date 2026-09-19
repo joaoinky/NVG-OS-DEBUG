@@ -1,4 +1,4 @@
-# Cadeia 03 — Sistema instalado em @, boot aponta apenas para o volume
+# Cadeia 03 - Sistema instalado em @, boot aponta apenas para o volume
 
 > **Status: RESOLVIDO**: corrigido no commit `3e0b344` (segunda rodada, `NVG-04`), presente na `main` do `neovanguard-os-dev`. O NVG-OS-DEBUG marca esta cadeia como ❌ pendente, mas está errado: a correção já estava no código. Detalhes em [reconciliação](reconciliacao-2026-09-11.md).
 

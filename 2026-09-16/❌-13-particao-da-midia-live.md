@@ -1,4 +1,4 @@
-# NVG-13 — Partições da mídia Live são aceitas como destino manual
+# NVG-13 - Partições da mídia Live são aceitas como destino manual
 
 **Estado: confirmado; correção não implementada nesta auditoria.** Gravidade: **alta** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 

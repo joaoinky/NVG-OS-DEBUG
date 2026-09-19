@@ -1,4 +1,4 @@
-# Cadeia 10 — Senha de disco vazia passa e a instalação morre depois de apagar o disco
+# Cadeia 10 - Senha de disco vazia passa e a instalação morre depois de apagar o disco
 
 > **Status: RESOLVIDO** na sexta rodada de 11/09/2026. Diagnóstico original preservado abaixo.
 

@@ -5,6 +5,6 @@ pacman -Sp systemd: 1
 error: failed to prepare transaction (could not satisfy dependencies)
 
 check-neo-refs: 1
-[38;2;242;101;122m✖[0m neo-install-vault-boot: `need bootctl systemd` — the package "systemd" does not exist in the repositories
+[38;2;242;101;122m✖[0m neo-install-vault-boot: `need bootctl systemd` - the package "systemd" does not exist in the repositories
 
 CONFIRMADO neste host: pacote existente é anunciado como inexistente por conflito de dependências da instalação local

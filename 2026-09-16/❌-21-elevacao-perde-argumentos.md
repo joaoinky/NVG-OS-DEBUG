@@ -1,4 +1,4 @@
-# NVG-21 — Flash e transportes mesh perdem a ação ao executar sudo
+# NVG-21 - Flash e transportes mesh perdem a ação ao executar sudo
 
 **Estado: confirmado; correção não implementada nesta auditoria.** Gravidade: **média** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 

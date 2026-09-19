@@ -1,4 +1,4 @@
-# Cadeia 05 — Conexão direta anterior continua aceita no modo Tor
+# Cadeia 05 - Conexão direta anterior continua aceita no modo Tor
 
 > **Status: RESOLVIDO**: corrigido na branch `fix/regras-nft-excecoes` (PR #1, `NVG-06`), mesclado na `main` do `neovanguard-os-dev`.
 

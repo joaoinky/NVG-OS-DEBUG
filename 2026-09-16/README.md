@@ -1,4 +1,4 @@
-# Auditoria de 16/09/2026 — NVG-13 a NVG-32
+# Auditoria de 16/09/2026 - NVG-13 a NVG-32
 
 Revisão da versão **1.2.1 em preparação**, na base
 `619d7697bf9ff0067a0d314c6456a5183f7a733b`. O trabalho começou em 15/09
@@ -31,28 +31,31 @@ Os títulos descrevem o defeito encontrado na base original, inclusive nos
 casos já corrigidos. “Alto”, “médio” e “baixo” indicam o impacto no cenário
 do relatório, não uma pontuação CVSS.
 
+Os nomes usam ✅ para correções integradas e ❌ para problemas que continuam
+pendentes. A última coluna aponta o estado e, quando disponível, o PR.
+
 | Cadeia | Erro | O que dá errado | Impacto | Estado |
 |---|---|---|---|---|
-| [01 — Mídia Live como destino](NVG-13-particao-da-midia-live.md) | NVG-13 | Partições da própria mídia Live são aceitas como destino manual | Alto | **Pendente** |
-| [02 — Partições sobrepostas](NVG-14-raiz-esp-home-sobrepostas.md) | NVG-14 | A mesma partição pode ser raiz, ESP e home | Alto | **Pendente** |
-| [03 — Usuário reservado](NVG-15-usuario-reservado.md) | NVG-15 | `root` é aceito como nova conta e a instalação falha depois da formatação | Alto | **Pendente** |
-| [04 — Boot do Cold Vault](NVG-16-boot-vault-perde-parametros.md) | NVG-16 | A entrada perde parâmetros necessários para Btrfs e LUKS | Alto | **Pendente** |
-| [05 — Links no cofre](NVG-17-cofre-links-no-destino.md) | NVG-17 | Aplicação privilegiada segue links no home e no temporário | Alto | Corrigido — [PR #8](https://github.com/NEOpisa/neovanguard-os-dev/pull/8) |
-| [06 — Restauração sem filtros](NVG-18-restauracao-instalador-sem-filtros.md) | NVG-18 | O instalador ignora a lista de arquivos permitidos | Alto | **Pendente** |
-| [07 — Envelope não autenticado](NVG-19-envelope-causa-panic.md) | NVG-19 | Um tamanho não autenticado pode abortar o processo | Médio | **Pendente** |
-| [08 — Limpeza de DMs](NVG-20-limpeza-dms-nao-publica.md) | NVG-20 | A interface anuncia envio sem publicar pedidos de exclusão | Médio | **Pendente** |
-| [09 — Elevação e argumentos](NVG-21-elevacao-perde-argumentos.md) | NVG-21 | Flash e transportes mesh perdem a ação ao executar `sudo` | Médio | **Pendente** |
-| [10 — Sincronização offline](NVG-22-sync-ignora-eventos-offline.md) | NVG-22 | Eventos offline antigos deixam de ser publicados | Médio | **Pendente** |
-| [11 — Secure Boot](NVG-23-secureboot-sucesso-falso.md) | NVG-23 | O setup anuncia uma cadeia assinada após falha | Alto | **Pendente** |
-| [12 — Matriz de aço](NVG-24-matriz-24-palavras-cortada.md) | NVG-24 | A matriz para 24 palavras ultrapassa a página | Médio | **Pendente** |
-| [13 — Menu do primeiro boot](NVG-25-wizard-captura-menu.md) | NVG-25 | O assistente captura o menu junto com a resposta | Alto | **Pendente** |
-| [14 — Perfil divergente](NVG-26-perfil-gravado-nao-lido.md) | NVG-26 | O perfil é gravado em arquivo e chave diferentes dos lidos | Médio | **Pendente** |
-| [15 — VPN e IPv6](NVG-27-vpn-ipv6-sem-ndp.md) | NVG-27 | O kill-switch impede o endpoint quando o cache NDP esvazia | Médio | **Pendente** |
-| [16 — Teste dependente de GPU](NVG-28-teste-depende-da-gpu.md) | NVG-28 | O teste do manifesto falha em hosts NVIDIA e bloqueia o check | Médio | **Pendente** |
-| [17 — Evento Nostr forjado](NVG-29-rpc-aceita-evento-forjado.md) | NVG-29 | O cliente aceita perfil com hash e assinatura inválidos | Alto | Corrigido — [PR #9](https://github.com/NEOpisa/neovanguard-os-dev/pull/9) |
-| [18 — Valor do zap](NVG-30-zap-nao-confere-valor.md) | NVG-30 | O valor da fatura não é comparado aos sats solicitados | Alto | Corrigido — [PR #10](https://github.com/NEOpisa/neovanguard-os-dev/pull/10) |
-| [19 — Tags descartadas](NVG-31-assinatura-descarta-tags.md) | NVG-31 | A CLI ignora `--tag` e envia evento sem referências | Médio | **Pendente** |
-| [20 — Verificador de pacotes](NVG-32-verificador-pacotes-falso-alarme.md) | NVG-32 | Um conflito do host produz diagnóstico de pacote inexistente | Baixo | **Pendente** |
+| [01 - Mídia Live como destino](❌-13-particao-da-midia-live.md) | NVG-13 | Partições da própria mídia Live são aceitas como destino manual | Alto | **Pendente** |
+| [02 - Partições sobrepostas](❌-14-raiz-esp-home-sobrepostas.md) | NVG-14 | A mesma partição pode ser raiz, ESP e home | Alto | **Pendente** |
+| [03 - Usuário reservado](❌-15-usuario-reservado.md) | NVG-15 | `root` é aceito como nova conta e a instalação falha depois da formatação | Alto | **Pendente** |
+| [04 - Boot do Cold Vault](❌-16-boot-vault-perde-parametros.md) | NVG-16 | A entrada perde parâmetros necessários para Btrfs e LUKS | Alto | **Pendente** |
+| [05 - Links no cofre](✅-17-cofre-links-no-destino.md) | NVG-17 | Aplicação privilegiada segue links no home e no temporário | Alto | Corrigido - [PR #8](https://github.com/NEOpisa/neovanguard-os-dev/pull/8) |
+| [06 - Restauração sem filtros](❌-18-restauracao-instalador-sem-filtros.md) | NVG-18 | O instalador ignora a lista de arquivos permitidos | Alto | **Pendente** |
+| [07 - Envelope não autenticado](❌-19-envelope-causa-panic.md) | NVG-19 | Um tamanho não autenticado pode abortar o processo | Médio | **Pendente** |
+| [08 - Limpeza de DMs](❌-20-limpeza-dms-nao-publica.md) | NVG-20 | A interface anuncia envio sem publicar pedidos de exclusão | Médio | **Pendente** |
+| [09 - Elevação e argumentos](❌-21-elevacao-perde-argumentos.md) | NVG-21 | Flash e transportes mesh perdem a ação ao executar `sudo` | Médio | **Pendente** |
+| [10 - Sincronização offline](❌-22-sync-ignora-eventos-offline.md) | NVG-22 | Eventos offline antigos deixam de ser publicados | Médio | **Pendente** |
+| [11 - Secure Boot](❌-23-secureboot-sucesso-falso.md) | NVG-23 | O setup anuncia uma cadeia assinada após falha | Alto | **Pendente** |
+| [12 - Matriz de aço](❌-24-matriz-24-palavras-cortada.md) | NVG-24 | A matriz para 24 palavras ultrapassa a página | Médio | **Pendente** |
+| [13 - Menu do primeiro boot](❌-25-wizard-captura-menu.md) | NVG-25 | O assistente captura o menu junto com a resposta | Alto | **Pendente** |
+| [14 - Perfil divergente](❌-26-perfil-gravado-nao-lido.md) | NVG-26 | O perfil é gravado em arquivo e chave diferentes dos lidos | Médio | **Pendente** |
+| [15 - VPN e IPv6](❌-27-vpn-ipv6-sem-ndp.md) | NVG-27 | O kill-switch impede o endpoint quando o cache NDP esvazia | Médio | **Pendente** |
+| [16 - Teste dependente de GPU](❌-28-teste-depende-da-gpu.md) | NVG-28 | O teste do manifesto falha em hosts NVIDIA e bloqueia o check | Médio | **Pendente** |
+| [17 - Evento Nostr forjado](✅-29-rpc-aceita-evento-forjado.md) | NVG-29 | O cliente aceita perfil com hash e assinatura inválidos | Alto | Corrigido - [PR #9](https://github.com/NEOpisa/neovanguard-os-dev/pull/9) |
+| [18 - Valor do zap](✅-30-zap-nao-confere-valor.md) | NVG-30 | O valor da fatura não é comparado aos sats solicitados | Alto | Corrigido - [PR #10](https://github.com/NEOpisa/neovanguard-os-dev/pull/10) |
+| [19 - Tags descartadas](❌-31-assinatura-descarta-tags.md) | NVG-31 | A CLI ignora `--tag` e envia evento sem referências | Médio | **Pendente** |
+| [20 - Verificador de pacotes](❌-32-verificador-pacotes-falso-alarme.md) | NVG-32 | Um conflito do host produz diagnóstico de pacote inexistente | Baixo | **Pendente** |
 
 
 Entre os achados ainda pendentes, os de seleção de disco e restauração

@@ -1,4 +1,4 @@
-# NVG-26 — Perfil é gravado em arquivo e chave diferentes dos que são lidos
+# NVG-26 - Perfil é gravado em arquivo e chave diferentes dos que são lidos
 
 **Estado: confirmado; correção não implementada nesta auditoria.** Gravidade: **média** no cenário descrito. Base: `619d7697bf9ff0067a0d314c6456a5183f7a733b` (1.2.1 em preparação).
 

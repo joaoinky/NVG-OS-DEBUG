@@ -1,4 +1,4 @@
-# Cadeia 09 — Kill-switch de VPN deixa saídas fora do túnel
+# Cadeia 09 - Kill-switch de VPN deixa saídas fora do túnel
 
 > **Status: RESOLVIDO** na sexta rodada de 11/09/2026. Diagnóstico original preservado abaixo.
 

@@ -1,4 +1,4 @@
-# Cadeia 01 — Dados da conta viram instruções de shell
+# Cadeia 01 - Dados da conta viram instruções de shell
 
 > **Status: RESOLVIDO**: corrigido no commit `3e0b344` (primeira rodada, `NVG-01` e `NVG-02`), presente na `main` do `neovanguard-os-dev`. [Comportamento atual e testes](correcoes-01.md).
 
@@ -18,13 +18,13 @@ O texto abaixo registra o problema original; as linhas citadas são as do commit
 2. O plano copia os campos e `accounts()` monta um script. O nome completo entra entre aspas duplas, removendo apenas o próprio caractere de aspas duplas. A senha entra entre aspas simples. Transformação: [rust/nvg-installer/src/install.rs:1057](../../../rust/nvg-installer/src/install.rs:1057).
 3. `chroot()` e `chroot_quiet()` gravam esses textos e executam Bash no destino. O conteúdo passa a ter significado de código, com os privilégios da instalação: [rust/nvg-installer/src/install.rs:253](../../../rust/nvg-installer/src/install.rs:253).
 
-## NVG-01 — Senha válida na interface quebra a criação da conta
+## NVG-01 - Senha válida na interface quebra a criação da conta
 
 Uma senha fictícia como `minha'senha` passa pelos critérios da tela, mas encerra prematuramente as aspas em `echo 'usuario:senha' | chpasswd`. A instalação chega à etapa de contas e falha ao interpretar o script, depois de já ter preparado e preenchido o disco.
 
 Evidência: a linha gerada com essa senha foi submetida somente a `bash -n`; retornou código **2**, erro de sintaxe. Não foi executado `chpasswd`. Senhas com combinações específicas de aspas também podem modificar o significado das instruções.
 
-## NVG-02 — Nome completo e hostname permitem interpretação de comandos
+## NVG-02 - Nome completo e hostname permitem interpretação de comandos
 
 No nome completo, uma substituição como `$(printf NVG_MARCADOR)` é executada dentro das aspas duplas. A remoção de `"` não neutraliza essa sintaxe. No hostname, a interpolação em comandos entre aspas simples também permite encerrar o literal. O hostname chega ao script de configuração em [rust/nvg-installer/src/install.rs:983](../../../rust/nvg-installer/src/install.rs:983).
 
