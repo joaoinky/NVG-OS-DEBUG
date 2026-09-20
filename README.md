@@ -7,7 +7,7 @@ NVG-OS, da reprodução inicial à correção. Os relatórios mostram onde a fal
 acontece, como reproduzi-la e quais testes sustentam a solução.
 
 [Auditoria mais recente](2026-09-16/README.md) ·
-[Últimas correções](2026-09-16/correcoes-2026-09-19.md) ·
+[Últimas correções](2026-09-16/correcoes-2026-09-20.md) ·
 [Código-fonte](https://github.com/NEOpisa/neovanguard-os-dev)
 
 ## O Neovanguard OS
@@ -38,25 +38,29 @@ de desenvolvimento.
 | Registro | Conteúdo | Último estado documentado |
 |---|---|---|
 | [Auditoria inicial](2026-08-09/README.md) | NVG-01 a NVG-12: instalação, boot, rede e recuperação de sementes | 12 corrigidos no escopo verificado |
-| [Auditoria de 16/09](2026-09-16/README.md) | NVG-13 a NVG-32: instalador, cofre, Nostr, pagamentos e validação | 5 corrigidos; 15 pendentes |
+| [Auditoria de 16/09](2026-09-16/README.md) | NVG-13 a NVG-32: instalador, cofre, Nostr, pagamentos e validação | 13 corrigidos no código; 7 pendentes |
 | [Correções de 18/09](2026-09-16/correcoes-2026-09-18.md) | Implementação, testes e merges de NVG-29, NVG-30 e NVG-17 | Integradas à main; ISO/VM pendente |
 | [Correções de 19/09](2026-09-16/correcoes-2026-09-19.md) | Assinatura com tags e publicação da limpeza de DMs, NVG-31 e NVG-20 | PR aberto; ISO e relay real pendentes |
+| [Correções de 20/09](2026-09-16/correcoes-2026-09-20.md) | Oito achados em cinco grupos: Rust, biblioteca shell, sincronização, VPN e utilitários | PRs #32 a #36 abertos; integração conjunta pendente |
 
 Os nomes históricos das pastas foram mantidos para preservar os links.
 As datas de cada revisão estão nos próprios documentos.
 
 ## Última atualização
 
-Em 19/09/2026, NVG-31 e NVG-20 foram corrigidos juntos no
-[PR #31](https://github.com/NEOpisa/neovanguard-os-dev/pull/31). A CLI de
-assinatura passou a preservar tags repetidas e a limpeza de DMs passou a
-publicar pedidos kind 5, validá-los e contar apenas confirmações do relay
-vinculadas ao ID enviado.
+Em 20/09/2026, oito achados receberam correções nos
+[PRs #32 a #36](2026-09-16/correcoes-2026-09-20.md): limites de envelopes e
+testes de GPU, argumentos na elevação e leitura de perfil, sincronização
+Nostr por ID, descoberta de vizinhos IPv6, formulário A4 e consulta de pacotes.
 
-O PR continua aberto. Os testes automatizados passaram, exceto pela falha
-preexistente de GPU registrada no NVG-28. Ainda falta validar os prompts do
-agente e o comportamento do relay empacotado em ISO/VM. O
-[registro da rodada](2026-09-16/correcoes-2026-09-19.md) detalha o escopo.
+Os cinco PRs estão abertos. Foram executadas regressões automatizadas,
+testes de tráfego em namespaces e conferência visual dos PDFs. Ainda faltam
+integração conjunta, ISO/VM e os cenários de hardware e serviços reais
+registrados na [matriz de validação](2026-09-16/pendencias-iso-vm-hardware.md).
+
+O [PR #31](https://github.com/NEOpisa/neovanguard-os-dev/pull/31), de NVG-20
+e NVG-31, também continua aberto. Seu escopo e seus testes permanecem no
+[registro de 19/09](2026-09-16/correcoes-2026-09-19.md).
 
 ### Correções anteriores
 

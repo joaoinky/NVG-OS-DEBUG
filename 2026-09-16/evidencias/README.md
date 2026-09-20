@@ -4,7 +4,7 @@ Esta pasta reúne os logs e as provas que sustentam os relatórios da auditoria.
 A base testada foi `619d7697bf9ff0067a0d314c6456a5183f7a733b`, em 15–16/09/2026.
 
 [Índice da auditoria](../README.md) ·
-[Correções posteriores](../correcoes-2026-09-18.md) ·
+[Correções posteriores](../correcoes-2026-09-20.md) ·
 [Pendências de ISO/VM](../pendencias-iso-vm-hardware.md)
 
 NVG-29, NVG-30 e NVG-17 foram corrigidos depois dessa coleta. Os logs antigos

@@ -37,25 +37,25 @@
   },
   {
     "id": "NVG-19",
-    "name": "❌-19-envelope-causa-panic.md",
+    "name": "✅-19-envelope-causa-panic.md",
     "title": "Tamanho não autenticado do envelope pode abortar o processo",
     "severity": "média"
   },
   {
     "id": "NVG-20",
-    "name": "❌-20-limpeza-dms-nao-publica.md",
+    "name": "✅-20-limpeza-dms-nao-publica.md",
     "title": "Limpeza de DMs anuncia envio sem publicar pedidos de exclusão",
     "severity": "média"
   },
   {
     "id": "NVG-21",
-    "name": "❌-21-elevacao-perde-argumentos.md",
+    "name": "✅-21-elevacao-perde-argumentos.md",
     "title": "Flash e transportes mesh perdem a ação ao executar sudo",
     "severity": "média"
   },
   {
     "id": "NVG-22",
-    "name": "❌-22-sync-ignora-eventos-offline.md",
+    "name": "✅-22-sync-ignora-eventos-offline.md",
     "title": "Sincronização deixa eventos offline antigos sem publicar",
     "severity": "média"
   },
@@ -67,7 +67,7 @@
   },
   {
     "id": "NVG-24",
-    "name": "❌-24-matriz-24-palavras-cortada.md",
+    "name": "✅-24-matriz-24-palavras-cortada.md",
     "title": "Matriz de aço para 24 palavras ultrapassa a página",
     "severity": "média"
   },
@@ -79,19 +79,19 @@
   },
   {
     "id": "NVG-26",
-    "name": "❌-26-perfil-gravado-nao-lido.md",
+    "name": "✅-26-perfil-gravado-nao-lido.md",
     "title": "Perfil é gravado em arquivo e chave diferentes dos que são lidos",
     "severity": "média"
   },
   {
     "id": "NVG-27",
-    "name": "❌-27-vpn-ipv6-sem-ndp.md",
+    "name": "✅-27-vpn-ipv6-sem-ndp.md",
     "title": "Kill-switch impede endpoint IPv6 quando o cache de vizinhos esvazia",
     "severity": "média"
   },
   {
     "id": "NVG-28",
-    "name": "❌-28-teste-depende-da-gpu.md",
+    "name": "✅-28-teste-depende-da-gpu.md",
     "title": "Teste do manifesto falha em hosts NVIDIA e bloqueia o check",
     "severity": "média"
   },
@@ -109,13 +109,13 @@
   },
   {
     "id": "NVG-31",
-    "name": "❌-31-assinatura-descarta-tags.md",
+    "name": "✅-31-assinatura-descarta-tags.md",
     "title": "CLI de assinatura ignora --tag e envia um evento sem referências",
     "severity": "média"
   },
   {
     "id": "NVG-32",
-    "name": "❌-32-verificador-pacotes-falso-alarme.md",
+    "name": "✅-32-verificador-pacotes-falso-alarme.md",
     "title": "Verificador anuncia pacote inexistente por conflito do host",
     "severity": "baixa"
   }

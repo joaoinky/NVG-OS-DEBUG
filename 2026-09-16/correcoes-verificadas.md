@@ -24,7 +24,7 @@ Base auditada: `619d7697bf9ff0067a0d314c6456a5183f7a733b`. Trabalho iniciado em 
 
 Fontes das alegações: [índice anterior](../2026-09-09/README.md) e seus dez diagnósticos, [rodadas 01–07](../2026-09-09/correcoes-07.md), [CHANGELOG](../../../CHANGELOG.md). Evidências atuais: [68 testes do instalador](evidencias/cargo-test-unsandboxed.log), [estado de rede](evidencias/test-network-state.log), [modos de rede](evidencias/test-network-modes-with-jq.log), [tráfego nft](evidencias/test-nft-network-unsandboxed.log), [políticas observadas](evidencias/check-network-policies-unsandboxed.log) e [Shamir](evidencias/test-neo-shamir.log).
 
-Os novos [NVG-16](❌-16-boot-vault-perde-parametros.md) e [NVG-27](❌-27-vpn-ipv6-sem-ndp.md) afetam, respectivamente, **outro gerador de entrada de boot** e **a conectividade IPv6 com cache vazio**. Não são a reaparição do NVG-04 nem dos vazamentos NVG-10/11.
+Os novos [NVG-16](❌-16-boot-vault-perde-parametros.md) e [NVG-27](✅-27-vpn-ipv6-sem-ndp.md) afetam, respectivamente, **outro gerador de entrada de boot** e **a conectividade IPv6 com cache vazio**. Não são a reaparição do NVG-04 nem dos vazamentos NVG-10/11.
 
 ## Outras correções anunciadas em changelog, notas e documentação
 
